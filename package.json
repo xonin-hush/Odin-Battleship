@@ -1,0 +1,26 @@
+{
+  "name": "blank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "projectName": "blank"
+  },
+  "keywords": [],
+  "author": "xonin <xonindev@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.10.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.90.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "lodash": "^4.17.21",
+    "util": "^0.12.5"
+  }
+}

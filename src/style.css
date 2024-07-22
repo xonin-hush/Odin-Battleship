@@ -1,0 +1,18 @@
+/* main css file */
+body {
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 6fr;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+
+}
+
