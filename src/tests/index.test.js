@@ -8,3 +8,8 @@ test("testing hit()",()=>{
     expect(L.hit()).not.toBe(100)
     // expect(L.hit()).toBe(L.hit())
 })
+
+test("testing sink()",()=>{
+    
+    expect(L.sink()).toBe(true)
+})

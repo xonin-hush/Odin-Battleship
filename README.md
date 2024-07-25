@@ -65,9 +65,18 @@ git checkout main
 
 then just go to netlify and deploy your project using on the new branch
 
+## Jest Watch
+
+To use jest Watch: ```npm run test -- --watch```
+
+check for [source](https://stackoverflow.com/questions/25472665/watch-and-rerun-jest-js-tests)
+
+
+
 #### Srouces
 
 - https://gist.github.com/cobyism/4730490
 - https://www.30secondsofcode.org/git/s/copy-file-from-branch
+
 ## Credits
 This project was made by [Xonin](https://github.com/xonin-hush) for The Odin Project.

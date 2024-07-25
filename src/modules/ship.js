@@ -8,6 +8,9 @@ export class Ship {
       this.hp=this.hp-1
       return this.hp
     }
+    sink(){
+      this.sunk=true
+      return this.sunk
+    }
+    
   }
-  
-  // module.exports=Ship
