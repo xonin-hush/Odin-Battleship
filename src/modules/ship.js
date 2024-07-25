@@ -1,16 +1,30 @@
 export class Ship {
-    constructor(length, hp=100, sunk=false) {
-      this.length = length;
-      this.hp=hp
-      this.sunk=false
+  constructor(length, sunk = false) {
+    this.length = length;
+    this.sunk = false;
+    switch (this.length) {
+      case 4:
+        this.hp = 100;
+        break;
+      case 3:
+        this.hp = 75;
+        break;
+      case 2:
+        this.hp = 50;
+        break;
+      case 1:
+        this.hp = 25;
     }
-    hit(){
-      this.hp=this.hp-1
-      return this.hp
-    }
-    sink(){
-      this.sunk=true
-      return this.sunk
-    }
-    
   }
+  hit() {
+    this.hp = this.hp - 25;
+    return this.hp;
+  }
+  isSunk() {
+    if (this.hp == 0) {
+      this.sunk=true
+      return this.sunk;
+    }
+    else return this.sunk
+  }
+}

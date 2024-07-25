@@ -1,0 +1,23 @@
+// const Ship=require("../modules/index")
+import { Ship } from "../modules/ship";
+let L = new Ship(4);
+let temp = "";
+test("testing hit()", () => {
+  expect(L.hit()).not.toBe(100);
+});
+test("testing hit()", () => {
+  expect(L.hit()).toBeLessThan(100);
+});
+
+
+test("testing isSunk()", () => {
+  let S = new Ship(1);
+  S.hit();
+  expect(S.isSunk()).toBe(true);
+});
+test("testing isSunk()", () => {
+    let S = new Ship(4);
+    S.hit();
+    expect(S.isSunk()).toBe(false);
+  });
+  
