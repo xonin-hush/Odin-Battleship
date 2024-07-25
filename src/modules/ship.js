@@ -1,5 +1,5 @@
 export class Ship {
-  constructor(length, sunk = false) {
+  constructor(length) {
     this.length = length;
     this.sunk = false;
     switch (this.length) {
