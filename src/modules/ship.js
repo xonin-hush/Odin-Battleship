@@ -1,7 +1,13 @@
 export class Ship {
-  constructor(length) {
+  constructor(length, positionTemp) {
     this.length = length;
     this.sunk = false;
+    this.positionTemp = positionTemp.split(" ")
+    this.position = [];
+
+    for (let i = 0; i < this.positionTemp.length; i++) {
+      this.position.push(Number(this.positionTemp[i]))
+    }
     switch (this.length) {
       case 4:
         this.hp = 100;
@@ -22,9 +28,10 @@ export class Ship {
   }
   isSunk() {
     if (this.hp == 0) {
-      this.sunk=true
+      this.sunk = true;
       return this.sunk;
-    }
-    else return this.sunk
+    } else return this.sunk;
   }
 }
+let L=new Ship(4,"1 2 3 4")
+console.log("hello",L.position)

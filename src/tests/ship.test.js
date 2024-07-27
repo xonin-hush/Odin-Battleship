@@ -1,4 +1,3 @@
-// const Ship=require("../modules/index")
 import { Ship } from "../modules/ship";
 let L = new Ship(4);
 let temp = "";
@@ -21,3 +20,9 @@ test("testing isSunk()", () => {
     expect(S.isSunk()).toBe(false);
   });
   
+
+test("testing if position is getting formatted correctly",()=>{
+  let D=new Ship(4,"1,2,3,4")
+  // console.log(D.position)
+  expect(D.position).toBe([1,2,3,4])
+})
