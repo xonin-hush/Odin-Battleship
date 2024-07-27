@@ -19,6 +19,7 @@ export function createGrid(itemNum = 20,container) {
     gridItem.style.removeProperty("background-color");
     gridItem.classList.remove("color-dark-blue");
     gridItem.classList.add("color-sky-blue");
+    gridItem.classList.add("grid-item")
     container.appendChild(gridItem);
     // colorMode(gridItem);
   }

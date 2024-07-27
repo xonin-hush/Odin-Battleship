@@ -3,7 +3,6 @@ body {
   padding: 0px;
   margin: 0px;
   display: grid;
-
   text-align: center;
   font-family: "Roboto", sans-serif;
 }
@@ -30,5 +29,11 @@ html {
   border-radius: 3px;
 }
 #game-board {
-    display: flex;
+  display: flex;
+  justify-content: space-around;
+}
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
