@@ -1,8 +1,6 @@
 import { Ship } from "./ship";
 
-function createGridBoard() {}
 let CURRENT_COLOR_MODE = "default";
-
 const boardContainer1 = document.querySelector("#board1");
 const boardContainer2 = document.querySelector("#board2");
 boardContainer1.classList.add("grid-container");
@@ -24,7 +22,6 @@ export function createGrid(itemNum = 20, container) {
     gridItem.classList.add("color-sky-blue");
     gridItem.classList.add("grid-item");
     container.appendChild(gridItem);
-    // colorMode(gridItem);
   }
 }
 

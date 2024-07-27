@@ -2,7 +2,7 @@ export class Ship {
   constructor(length, positionTemp) {
     this.length = length;
     this.sunk = false;
-    this.positionTemp = positionTemp.split(" ")
+    this.positionTemp = positionTemp.split(",")
     this.position = [];
 
     for (let i = 0; i < this.positionTemp.length; i++) {
@@ -34,4 +34,3 @@ export class Ship {
   }
 }
 let L=new Ship(4,"1 2 3 4")
-console.log("hello",L.position)
