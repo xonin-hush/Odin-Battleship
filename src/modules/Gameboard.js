@@ -36,7 +36,13 @@ function renderShips() {
     let ship2Position=document.querySelector("#ship2")
     let ship3Position=document.querySelector("#ship3")
     let ship4Position=document.querySelector("#ship4")
-console.log(ship1Position.value)
+    let ship1=new Ship(1,ship1Position)
+    let ship2=new Ship(2,ship2Position)
+    let ship3=new Ship(3,ship3Position)
+    let ship4=new Ship(4,ship4Position)
+    
+
+
   });
 }
 renderShips();
