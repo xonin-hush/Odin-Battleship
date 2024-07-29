@@ -7,7 +7,7 @@ const boardContainer2 = document.querySelector("#board2");
 boardContainer2.value = 2;
 boardContainer1.classList.add("grid-container");
 boardContainer2.classList.add("grid-container");
-
+const submit = document.querySelector("#submit");
 export function createGrid(itemNum = 20, container) {
   container.style.gridTemplateColumns = `repeat(${itemNum},1fr)`;
   container.style.gridTemplateRows = `repeat(${itemNum},1fr)`;
@@ -30,8 +30,15 @@ export function createGrid(itemNum = 20, container) {
 }
 
 function renderShips() {
-
+  submit.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ship1Position=document.querySelector("#ship1")
+    let ship2Position=document.querySelector("#ship2")
+    let ship3Position=document.querySelector("#ship3")
+    let ship4Position=document.querySelector("#ship4")
+console.log(ship1Position.value)
+  });
 }
-
+renderShips();
 createGrid(10, boardContainer1);
 createGrid(10, boardContainer2);
