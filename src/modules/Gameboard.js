@@ -2,7 +2,9 @@ import { Ship } from "./ship";
 
 let CURRENT_COLOR_MODE = "default";
 const boardContainer1 = document.querySelector("#board1");
+boardContainer1.value = 1;
 const boardContainer2 = document.querySelector("#board2");
+boardContainer2.value = 2;
 boardContainer1.classList.add("grid-container");
 boardContainer2.classList.add("grid-container");
 
@@ -10,7 +12,7 @@ export function createGrid(itemNum = 20, container) {
   container.style.gridTemplateColumns = `repeat(${itemNum},1fr)`;
   container.style.gridTemplateRows = `repeat(${itemNum},1fr)`;
   const cellSize = 40 / itemNum + "rem";
-  
+
   for (let i = 1; i < itemNum * itemNum + 1; i++) {
     const gridItem = document.createElement("div");
     gridItem.setAttribute("id", "grid-item");
@@ -25,6 +27,10 @@ export function createGrid(itemNum = 20, container) {
     gridItem.classList.add("grid-item");
     container.appendChild(gridItem);
   }
+}
+
+function renderShips() {
+
 }
 
 createGrid(10, boardContainer1);
