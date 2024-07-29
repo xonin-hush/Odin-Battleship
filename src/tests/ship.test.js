@@ -26,3 +26,39 @@ test("testing if position is getting formatted correctly",()=>{
   // console.log(D.position)
   expect(D.position).toEqual([1,2,3,4])
 })
+
+test("checking if position values are sequential",()=>{
+  let M=new Ship(4,"1,3,4,5")
+  expect(M.checkPositionValues([1,2,3,4])).toBe(true)
+
+})
+test("checking if position values are sequential",()=>{
+  let M=new Ship(4,"1,3,4,5")
+  expect(M.checkPositionValues([1,2,3,5])).toBe(false)
+
+})
+test("checking if position values are sequential",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([5,2,3,4])).toBe(false)
+
+})
+test("checking if position values has a zero",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([0,2,3,4])).toBe(false)
+
+})
+test("checking if position values end with 10's",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([7,8,9,10])).toBe(true)
+
+})
+test("checking if position values end with 10's",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([8,9,10,11])).toBe(false)
+
+})
+test("checking if position values end with 10's",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([8,9,10,7])).toBe(false)
+
+})

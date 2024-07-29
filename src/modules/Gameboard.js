@@ -28,7 +28,9 @@ export function createGrid(itemNum = 20, container) {
     container.appendChild(gridItem);
   }
 }
+function checkPositions(){
 
+}
 function renderShips() {
   submit.addEventListener("click", (event) => {
     event.preventDefault();
