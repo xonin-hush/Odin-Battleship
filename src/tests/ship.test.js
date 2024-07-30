@@ -62,3 +62,19 @@ test("checking if position values end with 10's",()=>{
   expect(M.checkPositionValues([8,9,10,7])).toBe(false)
 
 })
+test("checking if position values match with length of ship",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([8,9,10])).toBe(false)
+
+})
+test("checking if position values match with length of ship",()=>{
+  let M=new Ship(4,"2,3,4,5")
+  expect(M.checkPositionValues([6,7,8,9,10])).toBe(false)
+
+})
+
+test("checking if position values match with length of ship",()=>{
+  let M=new Ship(4,"1,3,4,5")
+  expect(M.hit()).toBe(3)
+
+})
