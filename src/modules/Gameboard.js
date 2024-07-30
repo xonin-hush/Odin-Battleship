@@ -28,8 +28,7 @@ export function createGrid(itemNum = 20, container) {
     container.appendChild(gridItem);
   }
 }
-
-function renderShips() {
+function getShipPositions(){
   submit.addEventListener("click", (event) => {
     event.preventDefault();
     let ship1Position=document.querySelector("#ship1")
@@ -39,26 +38,31 @@ function renderShips() {
     let ship1=new Ship(1,ship1Position.value)
     if((ship1.checkPositionValues(ship1.position,ship1.length))==(false)){
       console.log("Enter the sequential values in the correct format")
+      ship1=""
       return
     }
     let ship2=new Ship(2,ship2Position.value)
     if((ship2.checkPositionValues(ship2.position,ship2.length))==(false)){
       console.log("Enter the sequential values in the correct format")
+      ship2=""
       return
     }
     let ship3=new Ship(3,ship3Position.value)
     if((ship3.checkPositionValues(ship3.position,ship3.length))==(false)){
       console.log("Enter the sequential values in the correct format")
+      ship3=""
       return
     }
     let ship4=new Ship(4,ship4Position.value)
     if((ship4.checkPositionValues(ship4.position,ship4.length))==(false)){
       console.log("Enter the sequential values in the correct format")
+      ship4=""
       return
     }
-
-
   });
+}
+function renderShips() {
+  
 }
 renderShips();
 createGrid(10, boardContainer1);
