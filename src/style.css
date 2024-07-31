@@ -22,6 +22,15 @@ html {
   margin-bottom: 8px;
   margin-top: 40px;
 }
+.color-dark-blue {
+  border-color: black;
+  border: solid 1px rgb(65, 21, 21);
+  background-color: #1f2937;
+  color: aqua;
+  box-sizing: border-box;
+  border-radius: 3px;
+  
+}
 .color-sky-blue {
   background-color: skyblue;
   border-color: black;

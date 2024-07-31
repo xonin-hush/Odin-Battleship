@@ -65,26 +65,43 @@ function getShipPositions() {
       ship4 = "";
       return;
     }
-    console.log(ship1.position)
+    console.log(ship1.position);
     renderShips(ship1.position, ship2.position, ship3.position, ship4.position);
   });
 }
 getShipPositions();
 
-
 // renderShips(ship1.position, ship2.position, ship3.position, ship4.position);
 function renderShips(ship1, ship2, ship3, ship4) {
-  // console.log("is this working or what")
-  console.log("hello",ship1)
+  let newArray=ship1.concat(ship2,ship3,ship4)
+  console.log(newArray)
+  console.log("hello", ship1);
   gridItemsList = document.querySelectorAll("#grid-item1");
-  
-  gridItemsList.forEach((element) => {
-    if(element.value==ship1){
-      console.log(element)
+console.log(gridItemsList[2])
+newArray.forEach((element)=>{
+  for(let i=0;i<100;i++){
+    if(element==gridItemsList[i].value){
+      gridItemsList[i].classList.remove("color-sky-blue");
+      gridItemsList[i].classList.add("color-dark-blue");
+      console.log(element);
     }
-    
-    // console.log(element);
-  });
+  }
+})
+
+  // gridItemsList.forEach((element) => {
+  //   if (element.value == ship1) {
+  //     element.classList.remove("color-sky-blue");
+  //     element.classList.add("color-dark-blue");
+  //     console.log(element);
+  //   }
+  //   if (element.value == ship1) {
+  //     element.classList.remove("color-sky-blue");
+  //     element.classList.add("color-dark-blue");
+  //     console.log(element);
+  //   }
+
+  //   // console.log(element);
+  // });
 }
 // renderShips()
 // renderShips();
