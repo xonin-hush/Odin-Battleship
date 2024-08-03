@@ -1,6 +1,5 @@
 import { Ship } from "./ship";
 let gridItemsList = "";
-let CURRENT_COLOR_MODE = "default";
 const boardContainer1 = document.querySelector("#board1");
 boardContainer1.value = 1;
 const boardContainer2 = document.querySelector("#board2");
@@ -9,11 +8,11 @@ boardContainer1.classList.add("grid-container");
 boardContainer2.classList.add("grid-container");
 const submit = document.querySelector("#submit");
 let arrayConcat = "";
+
 export function createGrid(itemNum = 20, container, board) {
   container.style.gridTemplateColumns = `repeat(${itemNum},1fr)`;
   container.style.gridTemplateRows = `repeat(${itemNum},1fr)`;
   const cellSize = 40 / itemNum + "rem";
-
   for (let i = 1; i < itemNum * itemNum + 1; i++) {
     const gridItem = document.createElement("div");
     if (board == "firstBoard") {
@@ -43,36 +42,39 @@ function getShipPositions() {
     let ship3Position = document.querySelector("#ship3");
     let ship4Position = document.querySelector("#ship4");
     let ship1 = new Ship(1, ship1Position.value);
-    console.log(ship1);
-    console.log("this is temp", ship1.position);
 
     if (ship1.checkPositionValues(ship1.position, ship1.length) == false) {
       console.log("Enter the sequential values in the correct format");
       ship1 = "";
       return;
     }
+
     let ship2 = new Ship(2, ship2Position.value);
     if (ship2.checkPositionValues(ship2.position, ship2.length) == false) {
       console.log("Enter the sequential values in the correct format");
       ship2 = "";
       return;
     }
+
     let ship3 = new Ship(3, ship3Position.value);
     if (ship3.checkPositionValues(ship3.position, ship3.length) == false) {
       console.log("Enter the sequential values in the correct format");
       ship3 = "";
       return;
     }
-    let ship4 = new Ship(4, ship4Position.value);
 
+    let ship4 = new Ship(4, ship4Position.value);
     if (ship4.checkPositionValues(ship4.position, ship4.length) == false) {
       console.log("Enter the sequential values in the correct format");
       ship4 = "";
       return;
     }
-    let temp = ship1.position;
-    arrayConcat = temp.concat(ship2.position, ship3.position, ship4.position);
-    console.log(check_duplicate_in_array(arrayConcat));
+
+    arrayConcat = ship1.position.concat(
+      ship2.position,
+      ship3.position,
+      ship4.position
+    );
     if (check_duplicate_in_array(arrayConcat).length != 0) {
       console.log(
         "Please enter a value only once in all ships in the correct order"
@@ -84,8 +86,10 @@ function getShipPositions() {
       arrayConcat = "";
       return;
     }
+
     renderShips(ship1.position, ship2.position, ship3.position, ship4.position);
   });
+
   function check_duplicate_in_array(input_array) {
     const duplicates = input_array.filter(
       (item, index) => input_array.indexOf(item) !== index
@@ -93,23 +97,20 @@ function getShipPositions() {
     return Array.from(new Set(duplicates));
   }
 }
-getShipPositions();
 
 function renderShips(ship1, ship2, ship3, ship4) {
   let newArray = ship1.concat(ship2, ship3, ship4);
-  console.log(newArray);
-  console.log("hello", ship1);
   gridItemsList = document.querySelectorAll("#grid-item1");
-  console.log(gridItemsList[2]);
   newArray.forEach((element) => {
     for (let i = 0; i < 100; i++) {
       if (element == gridItemsList[i].value) {
         gridItemsList[i].classList.remove("color-sky-blue");
         gridItemsList[i].classList.add("color-dark-blue");
-        console.log(element);
       }
     }
   });
 }
+
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
+getShipPositions();
