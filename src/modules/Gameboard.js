@@ -111,6 +111,22 @@ function renderShips(ship1, ship2, ship3, ship4) {
   });
 }
 
+function receiveAttack(location){
+
+for(let i =0 ; i<100 ; i++){
+  if(location==gridItemsList[i].value){
+    if(gridItemsList[i].getAttribute("class")=="color-dark-blue"){
+      return "SHIP-HIT"
+    }else{
+      gridItemsList[i].setAttribute("class","missed")
+      return "SHIP-MISS"
+    }
+  }
+}
+
+
+}
+
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
 getShipPositions();
