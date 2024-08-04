@@ -21,25 +21,25 @@ export class Ship {
       case 1:
         this.hp = 25;
     }
-    // if((this.checkPositionValues(this.position,this.length))==(false)){
-    //   console.log("Enter the sequential values in the correct format")
-    //   return
-    // }
+   
+
   }
   hit() {
     this.hp = this.hp - 25;
     return this.hp;
   }
+
   isSunk() {
     if (this.hp == 0) {
       this.sunk = true;
       return this.sunk;
     } else return this.sunk;
   }
+
   checkPositionValues(array, length = 4) {
     let temp = array[0];
     if(array[0] <= 0){
-      return false
+      return
     }
     if (array.length != length) {
       return false;
@@ -64,5 +64,4 @@ export class Ship {
     return true;
   }
 }
-// let L = new Ship(4, "2,2,3,4");
-// console.log(L.hit())
+

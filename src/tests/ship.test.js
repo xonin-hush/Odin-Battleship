@@ -76,5 +76,5 @@ test("checking if position values match with length of ship",()=>{
 test("checking if position values match with length of ship",()=>{
   let M=new Ship(4,"1,3,4,5")
   expect(M.hit()).toBe(3)
-
 })
+

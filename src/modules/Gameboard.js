@@ -69,12 +69,14 @@ function getShipPositions() {
       ship4 = "";
       return;
     }
+    console.log("hello", ship1.position);
 
     arrayConcat = ship1.position.concat(
       ship2.position,
       ship3.position,
       ship4.position
     );
+    console.log(arrayConcat);
     if (check_duplicate_in_array(arrayConcat).length != 0) {
       console.log(
         "Please enter a value only once in all ships in the correct order"
@@ -86,7 +88,6 @@ function getShipPositions() {
       arrayConcat = "";
       return;
     }
-
     renderShips(ship1.position, ship2.position, ship3.position, ship4.position);
   });
 
@@ -111,20 +112,36 @@ function renderShips(ship1, ship2, ship3, ship4) {
   });
 }
 
-function receiveAttack(location){
-
-for(let i =0 ; i<100 ; i++){
-  if(location==gridItemsList[i].value){
-    if(gridItemsList[i].getAttribute("class")=="color-dark-blue"){
-      return "SHIP-HIT"
-    }else{
-      gridItemsList[i].setAttribute("class","missed")
-      return "SHIP-MISS"
+function receiveAttack(location) {
+  for (let i = 0; i < 100; i++) {
+    if (location == gridItemsList[i].value) {
+      if (gridItemsList[i].getAttribute("class") == "color-dark-blue") {
+        if (ship1.position.includes(location)) {
+          ship1.hit();
+          ship1.isSunk();
+        } else {
+          if (ship2.position.includes(location)) {
+            ship2.hit();
+            ship2.isSunk();
+          } else {
+            if (ship3.position.includes(location)) {
+              ship3.hit();
+              ship3.isSunk();
+            } else {
+              if (ship4.position.includes(location)) {
+                ship4.hit();
+                ship4.isSunk();
+              }
+            }
+          }
+        }
+        return "SHIP-HIT";
+      } else {
+        gridItemsList[i].setAttribute("class", "missed");
+        return "SHIP-MISS";
+      }
     }
   }
-}
-
-
 }
 
 createGrid(10, boardContainer1, "firstBoard");
