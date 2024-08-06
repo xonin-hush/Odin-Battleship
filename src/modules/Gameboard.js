@@ -93,6 +93,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P) {
     );
     return Array.from(new Set(duplicates));
   }
+  return true
 }
 
 function renderShips(ship1, ship2, ship3, ship4) {
@@ -108,7 +109,7 @@ function renderShips(ship1, ship2, ship3, ship4) {
   });
 }
 
-function receiveAttack(location) {
+export function receiveAttack(location) {
   for (let i = 0; i < 100; i++) {
     if (location == gridItemsList[i].value) {
       if (gridItemsList[i].getAttribute("class") == "color-dark-blue") {
