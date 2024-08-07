@@ -3,6 +3,7 @@ let status = "stopped";
 const submit = document.querySelector("#submit");
 const startButton = document.querySelector("#start");
 const stopButton = document.querySelector("#stop");
+const gameBoard1 = document.querySelector("#board1");
 let shipsExist = false;
 export function getShipPositions() {
   submit.addEventListener("click", (event) => {
@@ -25,10 +26,21 @@ function startGame() {
   startButton.addEventListener("click", (event) => {
     if (shipsExist == true) {
       status = "started";
-      console.log(status)
-      
+      console.log(status);
     }
   });
 }
+
+function clickAttack() {
+  gameBoard1.addEventListener("click", (e) => {
+    if (e.target.getAttribute("id") == "grid-item1") {
+      if (e.target.getAttribute("class") == "grid-item color-dark-blue") {
+        console.log(e)
+        console.log("bingo");
+      }
+    }
+  });
+}
+clickAttack();
 startGame();
 getShipPositions();
