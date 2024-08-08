@@ -39,20 +39,20 @@ function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
     if (e.target.getAttribute("id") == "grid-item1") {
       if (e.target.getAttribute("class") == "grid-item color-dark-blue") {
-        console.log("hello",e.target.value);
+        console.log("hello", e.target.value);
         console.log("bingo");
-        missShot(e.target.value)
+        missShot(e.target.value);
       }
     }
   });
 }
-
-function missShot(itemNumber){
-console.log(itemNumber+11)
-console.log(itemNumber+11-2)
-console.log(itemNumber-11)
-console.log(itemNumber-11+2)
-
+export function revealCorners(squareAddress) {
+  let gridItemsList = document.querySelectorAll("#grid-item1");
+  for (let i = 0; i < 100; i++) {
+    if (squareAddress == gridItemsList[i].value) {
+      gridItemsList[i].classList.remove("color-sky-blue");
+    }
+  }
 }
 
 clickAttack();
