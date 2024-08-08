@@ -9,21 +9,30 @@ let ship1Position = "";
 let ship2Position = "";
 let ship3Position = "";
 let ship4Position = "";
-export function getShipPositions() {
-  submit.addEventListener("click", (event) => {
-    event.preventDefault();
-    ship1Position = document.querySelector("#ship1");
-    ship2Position = document.querySelector("#ship2");
-    ship3Position = document.querySelector("#ship3");
-    ship4Position = document.querySelector("#ship4");
-    event.preventDefault();
-    shipsExist = createShips(
-      ship1Position,
-      ship2Position,
-      ship3Position,
-      ship4Position
-    );
-  });
+export function getShipPositions(
+  ship1 = "",
+  ship2 = "",
+  ship3 = "",
+  ship4 = ""
+) {
+  if (ship1 == "" && ship2 == "" && ship3 == "" && ship4 == "") {
+    submit.addEventListener("click", (event) => {
+      event.preventDefault();
+      ship1Position = document.querySelector("#ship1");
+      ship2Position = document.querySelector("#ship2");
+      ship3Position = document.querySelector("#ship3");
+      ship4Position = document.querySelector("#ship4");
+      event.preventDefault();
+      shipsExist = createShips(
+        ship1Position,
+        ship2Position,
+        ship3Position,
+        ship4Position
+      );
+    });
+  } else {
+    shipsExist = createShips(ship1, ship2, ship3, ship4);
+  }
 }
 
 function startGame() {
@@ -37,11 +46,11 @@ function startGame() {
 
 function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
+    console.log(e.target.getAttribute("class"));
+
     if (e.target.getAttribute("id") == "grid-item1") {
-      if (e.target.getAttribute("class") == "grid-item color-dark-blue") {
-        console.log("hello", e.target.value);
-        console.log("bingo");
-        missShot(e.target.value);
+      if (e.target.getAttribute("class").includes("ship")) {
+        console.log("ship!!!");
       }
     }
   });

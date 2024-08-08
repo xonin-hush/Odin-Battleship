@@ -25,7 +25,6 @@ export function createGrid(itemNum = 20, container, board) {
     gridItem.style.height = cellSize;
     gridItem.textContent = i;
     gridItem.value = i;
-    gridItem.setAttribute("class","ship")
     gridItem.style.removeProperty("background-color");
     gridItem.classList.remove("color-dark-blue");
     gridItem.classList.add("color-sky-blue");
@@ -94,7 +93,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P) {
     );
     return Array.from(new Set(duplicates));
   }
-  return true
+  return true;
 }
 
 function renderShips(ship1, ship2, ship3, ship4) {
@@ -103,10 +102,9 @@ function renderShips(ship1, ship2, ship3, ship4) {
   newArray.forEach((element) => {
     for (let i = 0; i < 100; i++) {
       if (element == gridItemsList[i].value) {
+        gridItemsList[i].classList.add("ship")
         gridItemsList[i].classList.remove("color-sky-blue");
         gridItemsList[i].classList.add("color-dark-blue");
-
-
       }
     }
   });
@@ -143,11 +141,11 @@ export function receiveAttack(location) {
     }
   }
 }
-function missShot(itemNumber){
-  console.log(itemNumber+11)
-  console.log(itemNumber+11-2)
-  console.log(itemNumber-11)
-  console.log(itemNumber-11+2)
-  }
+function hitShot(itemNumber) {
+  console.log(itemNumber + 11);
+  console.log(itemNumber + 11 - 2);
+  console.log(itemNumber - 11);
+  console.log(itemNumber - 11 + 2);
+}
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
