@@ -38,35 +38,54 @@ export function createShips(ship1P, ship2P, ship3P, ship4P) {
   let ship2Position = ship2P;
   let ship3Position = ship3P;
   let ship4Position = ship4P;
-  let ship1 = new Ship(1, ship1Position.value);
-
+  let ship1 = "";
+  let ship2 = "";
+  let ship3 = "";
+  let ship4 = "";
+  if (ship1Position.value == (undefined || null)) {
+    ship1 = new Ship(1, ship1Position);
+  } else {
+     ship1 = new Ship(1, ship1Position.value);
+  }
   if (ship1.checkPositionValues(ship1.position, ship1.length) == false) {
     console.log("Enter the sequential values in the correct format");
     ship1 = "";
     return;
   }
 
-  let ship2 = new Ship(2, ship2Position.value);
+  if (ship2Position.value == (undefined || null)) {
+     ship2 = new Ship(2, ship2Position);
+  } else {
+     ship2 = new Ship(2, ship2Position.value);
+  }
   if (ship2.checkPositionValues(ship2.position, ship2.length) == false) {
     console.log("Enter the sequential values in the correct format");
     ship2 = "";
     return;
   }
 
-  let ship3 = new Ship(3, ship3Position.value);
+  if (ship3Position.value == (undefined || null)) {
+     ship3 = new Ship(3, ship3Position);
+  } else {
+     ship3 = new Ship(3, ship3Position.value);
+  }
   if (ship3.checkPositionValues(ship3.position, ship3.length) == false) {
     console.log("Enter the sequential values in the correct format");
     ship3 = "";
     return;
   }
 
-  let ship4 = new Ship(4, ship4Position.value);
+  if (ship4Position.value == (undefined || null)) {
+     ship4 = new Ship(4, ship4Position);
+  } else {
+     ship4 = new Ship(4, ship4Position.value);
+  }
+  console.log("putting this")
   if (ship4.checkPositionValues(ship4.position, ship4.length) == false) {
     console.log("Enter the sequential values in the correct format");
     ship4 = "";
     return;
   }
-  console.log("hello", ship1.position);
 
   arrayConcat = ship1.position.concat(
     ship2.position,
@@ -102,7 +121,7 @@ function renderShips(ship1, ship2, ship3, ship4) {
   newArray.forEach((element) => {
     for (let i = 0; i < 100; i++) {
       if (element == gridItemsList[i].value) {
-        gridItemsList[i].classList.add("ship")
+        gridItemsList[i].classList.add("ship");
         gridItemsList[i].classList.remove("color-sky-blue");
         gridItemsList[i].classList.add("color-dark-blue");
       }

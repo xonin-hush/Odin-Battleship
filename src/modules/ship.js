@@ -2,11 +2,17 @@ export class Ship {
   constructor(length, positionTemp) {
     this.length = length;
     this.sunk = false;
-    this.positionTemp = positionTemp.split(",");
+
+    if (typeof positionTemp === "string") {
+      this.positionTemp = positionTemp.split(",");
+    } else {
+      this.positionTemp = positionTemp;
+    }
     this.position = [];
 
     for (let i = 0; i < this.positionTemp.length; i++) {
       this.position.push(Number(this.positionTemp[i]));
+    console.log("this is from ship",this.positionTemp);
     }
     switch (this.length) {
       case 4:
@@ -21,8 +27,6 @@ export class Ship {
       case 1:
         this.hp = 25;
     }
-   
-
   }
   hit() {
     this.hp = this.hp - 25;
@@ -38,8 +42,8 @@ export class Ship {
 
   checkPositionValues(array, length = 4) {
     let temp = array[0];
-    if(array[0] <= 0){
-      return
+    if (array[0] <= 0) {
+      return;
     }
     if (array.length != length) {
       return false;
@@ -50,6 +54,7 @@ export class Ship {
           (10 || 20 || 30 || 40 || 50 || 60 || 70 || 80 || 90 || 100) &&
         array[i] != array[array.length - 1]
       ) {
+        console.log(array)
         return false;
       }
       if (array[i] <= 0) {
@@ -64,4 +69,3 @@ export class Ship {
     return true;
   }
 }
-
