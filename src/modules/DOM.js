@@ -17,6 +17,7 @@ export function getShipPositions(
 ) {
   if (ship1 == "" && ship2 == "" && ship3 == "" && ship4 == "") {
     submit.addEventListener("click", (event) => {
+      clearBoards()
       event.preventDefault();
       ship1Position = document.querySelector("#ship1");
       ship2Position = document.querySelector("#ship2");
@@ -61,6 +62,17 @@ export function revealCorners(squareAddress) {
     if (squareAddress == gridItemsList[i].value) {
       gridItemsList[i].classList.remove("color-sky-blue");
     }
+  }
+}
+
+export function clearBoards() {
+  let gridItemsList1 = document.querySelectorAll("#grid-item1");
+  let gridItemsList2 = document.querySelectorAll("#grid-item2");
+  for (let i = 0; i < 100; i++) {
+    gridItemsList1[i].classList.remove("color-dark-blue");
+    gridItemsList1[i].classList.add("color-sky-blue");
+    gridItemsList2[i].classList.remove("color-dark-blue");
+    gridItemsList2[i].classList.add("color-sky-blue");
   }
 }
 

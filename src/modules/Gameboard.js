@@ -1,4 +1,5 @@
 import { Ship } from "./ship";
+import { clearBoards } from "./DOM";
 let gridItemsList = "";
 const boardContainer1 = document.querySelector("#board1");
 boardContainer1.value = 1;
