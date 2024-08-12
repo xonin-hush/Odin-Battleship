@@ -10,6 +10,7 @@ boardContainer2.value = 2;
 boardContainer1.classList.add("grid-container");
 boardContainer2.classList.add("grid-container");
 let arrayConcat = "";
+export let shipsInBoardOne = false;
 
 export function createGrid(itemNum = 20, container, board) {
   container.style.gridTemplateColumns = `repeat(${itemNum},1fr)`;
@@ -36,7 +37,7 @@ export function createGrid(itemNum = 20, container, board) {
   }
 }
 
-export function createShips(ship1P, ship2P, ship3P, ship4P,boardNumber) {
+export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   let ship1Position = ship1P;
   let ship2Position = ship2P;
   let ship3Position = ship3P;
@@ -105,10 +106,23 @@ export function createShips(ship1P, ship2P, ship3P, ship4P,boardNumber) {
     arrayConcat = "";
     return;
   }
-  if(boardNumber==1){
-    renderShips(ship1.position, ship2.position, ship3.position, ship4.position,1);
-  }else{
-  renderShips(ship1.position, ship2.position, ship3.position, ship4.position,2);
+  if (boardNumber == 1) {
+    renderShips(
+      ship1.position,
+      ship2.position,
+      ship3.position,
+      ship4.position,
+      1
+    );
+    setShipsInBoardOne(true);
+  } else {
+    renderShips(
+      ship1.position,
+      ship2.position,
+      ship3.position,
+      ship4.position,
+      2
+    );
   }
 
   function check_duplicate_in_array(input_array) {
@@ -120,9 +134,9 @@ export function createShips(ship1P, ship2P, ship3P, ship4P,boardNumber) {
   return true;
 }
 
-function renderShips(ship1, ship2, ship3, ship4,boardNumber) {
+function renderShips(ship1, ship2, ship3, ship4, boardNumber) {
   let newArray = ship1.concat(ship2, ship3, ship4);
-  if(boardNumber==1){
+  if (boardNumber == 1) {
     gridItemsList1 = document.querySelectorAll("#grid-item1");
     newArray.forEach((element) => {
       for (let i = 0; i < 100; i++) {
@@ -133,9 +147,8 @@ function renderShips(ship1, ship2, ship3, ship4,boardNumber) {
         }
       }
     });
-  }
-  else{
-  gridItemsList2 = document.querySelectorAll("#grid-item2");
+  } else {
+    gridItemsList2 = document.querySelectorAll("#grid-item2");
     newArray.forEach((element) => {
       for (let i = 0; i < 100; i++) {
         if (element == gridItemsList2[i].value) {
@@ -146,7 +159,6 @@ function renderShips(ship1, ship2, ship3, ship4,boardNumber) {
       }
     });
   }
-  
 }
 
 export function receiveAttack(location) {
@@ -181,11 +193,15 @@ export function receiveAttack(location) {
   }
 }
 
+export function setShipsInBoardOne(trueFalse) {
+  shipsInBoardOne = trueFalse;
+}
+
 function hitShot(itemNumber) {
   console.log(itemNumber + 11);
   console.log(itemNumber + 11 - 2);
   console.log(itemNumber - 11);
   console.log(itemNumber - 11 + 2);
-} 
+}
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
