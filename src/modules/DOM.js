@@ -67,7 +67,7 @@ export function clearBoards() {
 function playWithAI() {
   playAIButton.addEventListener("click", (event) => {
     if (shipsInBoardOne == true) {
-      clearBoards();
+      // clearBoards();
       let ai = new playerAI();
       let randomShips = ai.randomizeShips();
       createShips(
