@@ -36,7 +36,7 @@ export function createGrid(itemNum = 20, container, board) {
   }
 }
 
-export function createShips(ship1P, ship2P, ship3P, ship4P) {
+export function createShips(ship1P, ship2P, ship3P, ship4P,boardNumber) {
   let ship1Position = ship1P;
   let ship2Position = ship2P;
   let ship3Position = ship3P;
@@ -66,7 +66,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P) {
     ship2 = "";
     return;
   }
-
   if (ship3Position.value == (undefined || null)) {
     ship3 = new Ship(3, ship3Position);
   } else {
@@ -106,7 +105,11 @@ export function createShips(ship1P, ship2P, ship3P, ship4P) {
     arrayConcat = "";
     return;
   }
-  renderShips(ship1.position, ship2.position, ship3.position, ship4.position);
+  if(boardNumber==1){
+    renderShips(ship1.position, ship2.position, ship3.position, ship4.position,1);
+  }else{
+  renderShips(ship1.position, ship2.position, ship3.position, ship4.position,2);
+  }
 
   function check_duplicate_in_array(input_array) {
     const duplicates = input_array.filter(
@@ -117,19 +120,33 @@ export function createShips(ship1P, ship2P, ship3P, ship4P) {
   return true;
 }
 
-function renderShips(ship1, ship2, ship3, ship4) {
+function renderShips(ship1, ship2, ship3, ship4,boardNumber) {
   let newArray = ship1.concat(ship2, ship3, ship4);
-  gridItemsList1 = document.querySelectorAll("#grid-item1");
-  gridItemsList2 = document.querySelectorAll("#grid-item2");
-  newArray.forEach((element) => {
-    for (let i = 0; i < 100; i++) {
-      if (element == gridItemsList2[i].value) {
-        gridItemsList2[i].classList.add("ship");
-        gridItemsList2[i].classList.remove("color-sky-blue");
-        gridItemsList2[i].classList.add("color-dark-blue");
+  if(boardNumber==1){
+    gridItemsList1 = document.querySelectorAll("#grid-item1");
+    newArray.forEach((element) => {
+      for (let i = 0; i < 100; i++) {
+        if (element == gridItemsList1[i].value) {
+          gridItemsList1[i].classList.add("ship");
+          gridItemsList1[i].classList.remove("color-sky-blue");
+          gridItemsList1[i].classList.add("color-dark-blue");
+        }
       }
-    }
-  });
+    });
+  }
+  else{
+  gridItemsList2 = document.querySelectorAll("#grid-item2");
+    newArray.forEach((element) => {
+      for (let i = 0; i < 100; i++) {
+        if (element == gridItemsList2[i].value) {
+          gridItemsList2[i].classList.add("ship");
+          gridItemsList2[i].classList.remove("color-sky-blue");
+          gridItemsList2[i].classList.add("color-dark-blue");
+        }
+      }
+    });
+  }
+  
 }
 
 export function receiveAttack(location) {
@@ -163,6 +180,7 @@ export function receiveAttack(location) {
     }
   }
 }
+
 function hitShot(itemNumber) {
   console.log(itemNumber + 11);
   console.log(itemNumber + 11 - 2);

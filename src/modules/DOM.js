@@ -12,16 +12,18 @@ let ship2Position = "";
 let ship3Position = "";
 let ship4Position = "";
 
+
+
 export function getShipPositions(
   ship1 = "",
   ship2 = "",
   ship3 = "",
   ship4 = ""
 ) {
-  if (ship1 == "" && ship2 == "" && ship3 == "" && ship4 == "") {
     submit.addEventListener("click", (event) => {
-      clearBoards();
       event.preventDefault();
+      console.log("god is this working")
+      clearBoards();
       ship1Position = document.querySelector("#ship1");
       ship2Position = document.querySelector("#ship2");
       ship3Position = document.querySelector("#ship3");
@@ -31,25 +33,21 @@ export function getShipPositions(
         ship1Position,
         ship2Position,
         ship3Position,
-        ship4Position
+        ship4Position,1
       );
     });
-  } else {
-    shipsExist = createShips(ship1, ship2, ship3, ship4);
-  }
 }
 
 function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
-    console.log(e.target.getAttribute("class"));
 
     if (e.target.getAttribute("id") == "grid-item1") {
       if (e.target.getAttribute("class").includes("ship")) {
-        console.log("ship!!!");
       }
     }
   });
 }
+
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item1");
   for (let i = 0; i < 100; i++) {
@@ -60,7 +58,6 @@ export function revealCorners(squareAddress) {
 }
 
 export function clearBoards() {
-  console.log("working?")
   let gridItemsList1 = document.querySelectorAll("#grid-item1");
   let gridItemsList2 = document.querySelectorAll("#grid-item2");
   for (let i = 0; i < 100; i++) {
@@ -76,7 +73,7 @@ function playWithAI() {
     clearBoards();
     let ai = new playerAI();
     let randomShips = ai.randomizeShips();
-    getShipPositions(
+    createShips(
       randomShips[0],
       randomShips[1],
       randomShips[2],
@@ -88,7 +85,8 @@ function playWithAI() {
     // }
   });
 }
+
 playWithAI();
 clickAttack();
 // startGame();
-// getShipPositions();
+getShipPositions();
