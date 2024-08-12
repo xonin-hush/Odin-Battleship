@@ -1,7 +1,9 @@
+import { random } from "lodash";
 import { createShips } from "./Gameboard";
+import { playerAI } from "./player";
 let status = "stopped";
 const submit = document.querySelector("#submit");
-const startButton = document.querySelector("#start");
+const playAIButton = document.querySelector("#play-AI");
 const stopButton = document.querySelector("#stop");
 const gameBoard1 = document.querySelector("#board1");
 let shipsExist = false;
@@ -9,6 +11,7 @@ let ship1Position = "";
 let ship2Position = "";
 let ship3Position = "";
 let ship4Position = "";
+
 export function getShipPositions(
   ship1 = "",
   ship2 = "",
@@ -17,7 +20,7 @@ export function getShipPositions(
 ) {
   if (ship1 == "" && ship2 == "" && ship3 == "" && ship4 == "") {
     submit.addEventListener("click", (event) => {
-      clearBoards()
+      clearBoards();
       event.preventDefault();
       ship1Position = document.querySelector("#ship1");
       ship2Position = document.querySelector("#ship2");
@@ -34,15 +37,6 @@ export function getShipPositions(
   } else {
     shipsExist = createShips(ship1, ship2, ship3, ship4);
   }
-}
-
-function startGame() {
-  startButton.addEventListener("click", (event) => {
-    if (shipsExist == true) {
-      status = "started";
-      console.log(status);
-    }
-  });
 }
 
 function clickAttack() {
@@ -66,6 +60,7 @@ export function revealCorners(squareAddress) {
 }
 
 export function clearBoards() {
+  console.log("working?")
   let gridItemsList1 = document.querySelectorAll("#grid-item1");
   let gridItemsList2 = document.querySelectorAll("#grid-item2");
   for (let i = 0; i < 100; i++) {
@@ -76,6 +71,24 @@ export function clearBoards() {
   }
 }
 
+function playWithAI() {
+  playAIButton.addEventListener("click", (event) => {
+    clearBoards();
+    let ai = new playerAI();
+    let randomShips = ai.randomizeShips();
+    getShipPositions(
+      randomShips[0],
+      randomShips[1],
+      randomShips[2],
+      randomShips[3]
+    );
+    // if (shipsExist == true) {
+    // status = "started";
+    // console.log(status);
+    // }
+  });
+}
+playWithAI();
 clickAttack();
-startGame();
-getShipPositions();
+// startGame();
+// getShipPositions();

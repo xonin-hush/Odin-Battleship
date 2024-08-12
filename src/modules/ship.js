@@ -12,7 +12,6 @@ export class Ship {
 
     for (let i = 0; i < this.positionTemp.length; i++) {
       this.position.push(Number(this.positionTemp[i]));
-    console.log("this is from ship",this.positionTemp);
     }
     switch (this.length) {
       case 4:
@@ -54,7 +53,6 @@ export class Ship {
           (10 || 20 || 30 || 40 || 50 || 60 || 70 || 80 || 90 || 100) &&
         array[i] != array[array.length - 1]
       ) {
-        console.log(array)
         return false;
       }
       if (array[i] <= 0) {

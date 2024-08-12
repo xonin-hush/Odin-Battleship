@@ -19,8 +19,8 @@ export class playerAI {
     console.log(ship4)
     let concatTemp = ship1.concat(ship2Temp, ship2, ship3, ship4);
     console.log("shipss",concatTemp);
-    getShipPositions(ship1, [ship2Temp, ship2], ship3, ship4);
+    return [ship1, [ship2Temp, ship2], ship3, ship4]
   }
 }
 let L = new playerAI();
-L.randomizeShips();
+console.log(L.randomizeShips())
