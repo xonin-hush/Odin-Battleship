@@ -12,14 +12,7 @@ let ship2Position = "";
 let ship3Position = "";
 let ship4Position = "";
 
-
-
-export function getShipPositions(
-  ship1 = "",
-  ship2 = "",
-  ship3 = "",
-  ship4 = ""
-) {
+export function getShipPositions() {
     submit.addEventListener("click", (event) => {
       event.preventDefault();
       console.log("god is this working")
@@ -40,7 +33,6 @@ export function getShipPositions(
 
 function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
-
     if (e.target.getAttribute("id") == "grid-item1") {
       if (e.target.getAttribute("class").includes("ship")) {
       }
@@ -79,14 +71,9 @@ function playWithAI() {
       randomShips[2],
       randomShips[3]
     );
-    // if (shipsExist == true) {
-    // status = "started";
-    // console.log(status);
-    // }
   });
 }
 
 playWithAI();
 clickAttack();
-// startGame();
 getShipPositions();
