@@ -67,6 +67,19 @@ export function clearBoards() {
   }
 }
 
+export function dotBox(location) {
+
+  let gridItemsList1 = document.querySelectorAll("#grid-item1"); //change this to gridItemList2 later
+  for (let i = 0; i < 100; i++) {
+    if ((gridItemsList1[i].value == location)&&(gridItemsList1[i].getAttribute("class")!="grid-item ship color-dark-blue")) {
+      console.log(gridItemsList1[i].getAttribute("class"))
+      gridItemsList1[i].classList.remove("color-dark-blue");
+      gridItemsList1[i].classList.add("dot");
+      gridItemsList1[i].innerHTML = ".";
+    }
+  }
+}
+
 function playWithAI() {
   playAIButton.addEventListener("click", (event) => {
     if (shipsInBoardOne == true) {

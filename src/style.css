@@ -38,6 +38,10 @@ html {
   box-sizing: border-box;
   border-radius: 3px;
 }
+.dot{
+  font-weight: bolder;
+  background-color: skyblue;
+}
 #game-board {
   display: flex;
   justify-content: space-around;

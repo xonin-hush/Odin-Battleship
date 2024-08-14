@@ -1,5 +1,6 @@
 import { Ship } from "./ship";
 import { clearBoards } from "./DOM";
+import { dotBox } from "./DOM";
 let gridItemsList = "";
 let gridItemsList1 = "";
 let gridItemsList2 = "";
@@ -198,10 +199,14 @@ export function setShipsInBoardOne(trueFalse) {
 }
 
 export function hitShot(itemNumber) {
-  console.log(itemNumber + 11);
-  console.log(itemNumber + 11 - 2);
-  console.log(itemNumber - 11);
-  console.log(itemNumber - 11 + 2);
+  dotBox(itemNumber + 11)
+  dotBox(itemNumber + 11 - 2)
+  dotBox(itemNumber - 11)
+  dotBox(itemNumber - 11 + 2)
+  // console.log(itemNumber + 11);
+  // console.log(itemNumber + 11 - 2);
+  // console.log(itemNumber - 11);
+  // console.log(itemNumber - 11 + 2);
 }
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
