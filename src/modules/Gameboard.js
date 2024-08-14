@@ -197,7 +197,7 @@ export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }
 
-function hitShot(itemNumber) {
+export function hitShot(itemNumber) {
   console.log(itemNumber + 11);
   console.log(itemNumber + 11 - 2);
   console.log(itemNumber - 11);

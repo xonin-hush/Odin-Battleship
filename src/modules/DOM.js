@@ -3,6 +3,7 @@ import { createShips } from "./Gameboard";
 import { playerAI } from "./player";
 import { shipsInBoardOne } from "./Gameboard";
 import { setShipsInBoardOne } from "./Gameboard";
+import { hitShot } from "./Gameboard";
 let status = "stopped";
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
@@ -38,6 +39,8 @@ function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
     if (e.target.getAttribute("id") == "grid-item1") {
       if (e.target.getAttribute("class").includes("ship")) {
+        console.log(e.target.value);
+        hitShot(e.target.value);
       }
     }
   });
@@ -55,7 +58,7 @@ export function revealCorners(squareAddress) {
 export function clearBoards() {
   let gridItemsList1 = document.querySelectorAll("#grid-item1");
   let gridItemsList2 = document.querySelectorAll("#grid-item2");
-  setShipsInBoardOne(false)
+  setShipsInBoardOne(false);
   for (let i = 0; i < 100; i++) {
     gridItemsList1[i].classList.remove("color-dark-blue");
     gridItemsList1[i].classList.add("color-sky-blue");
@@ -76,7 +79,7 @@ function playWithAI() {
         randomShips[3]
       );
     } else {
-      console.log("Please enter your ships first")
+      console.log("Please enter your ships first");
     }
   });
 }
