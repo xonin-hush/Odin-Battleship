@@ -42,6 +42,9 @@ function clickAttack() {
         console.log(e.target.value);
         hitShot(e.target.value);
       }
+      else{
+        dotBox(e.target.value)
+      }
     }
   });
 }
@@ -68,7 +71,6 @@ export function clearBoards() {
 }
 
 export function dotBox(location) {
-
   let gridItemsList1 = document.querySelectorAll("#grid-item1"); //change this to gridItemList2 later
   for (let i = 0; i < 100; i++) {
     if ((gridItemsList1[i].value == location)&&(gridItemsList1[i].getAttribute("class")!="grid-item ship color-dark-blue")) {
