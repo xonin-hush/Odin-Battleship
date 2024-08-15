@@ -37,13 +37,15 @@ export function getShipPositions() {
 
 function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
-    if (e.target.getAttribute("id") == "grid-item1") {
-      if (e.target.getAttribute("class").includes("ship")) {
-        console.log(e.target.value);
-        hitShot(e.target.value);
-      }
-      else{
-        dotBox(e.target.value)
+    if (status == "started") {
+      if (e.target.getAttribute("id") == "grid-item1") {
+        if (e.target.getAttribute("class").includes("ship")) {
+          console.log(e.target.value);
+          hitShot(e.target.value);
+        } else {
+          dotBox(e.target.value);
+          console.log(status)
+        }
       }
     }
   });
@@ -73,8 +75,12 @@ export function clearBoards() {
 export function dotBox(location) {
   let gridItemsList1 = document.querySelectorAll("#grid-item1"); //change this to gridItemList2 later
   for (let i = 0; i < 100; i++) {
-    if ((gridItemsList1[i].value == location)&&(gridItemsList1[i].getAttribute("class")!="grid-item ship color-dark-blue")) {
-      console.log(gridItemsList1[i].getAttribute("class"))
+    if (
+      gridItemsList1[i].value == location &&
+      gridItemsList1[i].getAttribute("class") !=
+        "grid-item ship color-dark-blue"
+    ) {
+      console.log(gridItemsList1[i].getAttribute("class"));
       gridItemsList1[i].classList.remove("color-dark-blue");
       gridItemsList1[i].classList.add("dot");
       gridItemsList1[i].innerHTML = ".";
@@ -97,6 +103,10 @@ function playWithAI() {
       console.log("Please enter your ships first");
     }
   });
+}
+
+export function setStatus() {
+  status = "started";
 }
 
 playWithAI();

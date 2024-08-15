@@ -1,6 +1,7 @@
 import { Ship } from "./ship";
 import { clearBoards } from "./DOM";
 import { dotBox } from "./DOM";
+import { setStatus } from "./DOM";
 let gridItemsList = "";
 let gridItemsList1 = "";
 let gridItemsList2 = "";
@@ -115,6 +116,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
       ship4.position,
       1
     );
+    setStatus()
     setShipsInBoardOne(true);
   } else {
     renderShips(
@@ -124,6 +126,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
       ship4.position,
       2
     );
+    setStatus()
   }
 
   function check_duplicate_in_array(input_array) {
@@ -203,10 +206,7 @@ export function hitShot(itemNumber) {
   dotBox(itemNumber + 11 - 2)
   dotBox(itemNumber - 11)
   dotBox(itemNumber - 11 + 2)
-  // console.log(itemNumber + 11);
-  // console.log(itemNumber + 11 - 2);
-  // console.log(itemNumber - 11);
-  // console.log(itemNumber - 11 + 2);
 }
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
+
