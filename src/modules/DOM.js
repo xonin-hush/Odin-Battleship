@@ -38,13 +38,13 @@ export function getShipPositions() {
 function clickAttack() {
   gameBoard1.addEventListener("click", (e) => {
     if (status == "started") {
+      
       if (e.target.getAttribute("id") == "grid-item1") {
         if (e.target.getAttribute("class").includes("ship")) {
-          console.log(e.target.value);
           hitShot(e.target.value);
+          
         } else {
           dotBox(e.target.value);
-          console.log(status)
         }
       }
     }

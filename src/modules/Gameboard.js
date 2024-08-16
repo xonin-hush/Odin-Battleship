@@ -116,7 +116,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
       ship4.position,
       1
     );
-    setStatus()
+    setStatus();
     setShipsInBoardOne(true);
   } else {
     renderShips(
@@ -126,7 +126,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
       ship4.position,
       2
     );
-    setStatus()
+    setStatus();
   }
 
   function check_duplicate_in_array(input_array) {
@@ -202,11 +202,18 @@ export function setShipsInBoardOne(trueFalse) {
 }
 
 export function hitShot(itemNumber) {
-  dotBox(itemNumber + 11)
-  dotBox(itemNumber + 11 - 2)
-  dotBox(itemNumber - 11)
-  dotBox(itemNumber - 11 + 2)
+  let gridItemsList = document.querySelectorAll("#grid-item1");
+          for (let i = 0; i < 100; i++) {
+            if (gridItemsList[i].value == itemNumber) {
+              gridItemsList[i].classList.remove("color-dark-blue");
+              gridItemsList[i].classList.add("X");
+              gridItemsList[i].innerHTML = "X";
+            }
+          }
+  dotBox(itemNumber + 11);
+  dotBox(itemNumber + 11 - 2);
+  dotBox(itemNumber - 11);
+  dotBox(itemNumber - 11 + 2);
 }
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
-
