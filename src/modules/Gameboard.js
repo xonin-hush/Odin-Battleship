@@ -202,7 +202,7 @@ export function setShipsInBoardOne(trueFalse) {
 }
 
 export function hitShot(itemNumber) {
-  let gridItemsList = document.querySelectorAll("#grid-item1");
+  let gridItemsList = document.querySelectorAll("#grid-item2");
           for (let i = 0; i < 100; i++) {
             if (gridItemsList[i].value == itemNumber) {
               gridItemsList[i].classList.remove("color-dark-blue");

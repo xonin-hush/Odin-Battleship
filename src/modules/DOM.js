@@ -9,6 +9,7 @@ const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
 const stopButton = document.querySelector("#stop");
 const gameBoard1 = document.querySelector("#board1");
+const gameBoard2 = document.querySelector("#board2");
 let shipsExist = false;
 let ship1Position = "";
 let ship2Position = "";
@@ -30,17 +31,17 @@ export function getShipPositions() {
       ship2Position,
       ship3Position,
       ship4Position,
-      1
+      2
     );
   });
 }
 
 function clickAttack() {
-  gameBoard1.addEventListener("click", (e) => {
+  gameBoard2.addEventListener("click", (e) => {
     console.log(e.target.getAttribute("class"))
     if (status == "started") {
       
-      if (e.target.getAttribute("id") == "grid-item1") {
+      if (e.target.getAttribute("id") == "grid-item2") {
         if (e.target.getAttribute("class").includes("ship")) {
           hitShot(e.target.value);
           
@@ -53,7 +54,7 @@ function clickAttack() {
 }
 
 export function revealCorners(squareAddress) {
-  let gridItemsList = document.querySelectorAll("#grid-item1");
+  let gridItemsList = document.querySelectorAll("#grid-item2");
   for (let i = 0; i < 100; i++) {
     if (squareAddress == gridItemsList[i].value) {
       gridItemsList[i].classList.remove("color-sky-blue");
@@ -74,14 +75,13 @@ export function clearBoards() {
 }
 
 export function dotBox(location) {
-  let gridItemsList1 = document.querySelectorAll("#grid-item1"); //change this to gridItemList2 later
+  let gridItemsList2 = document.querySelectorAll("#grid-item2"); //change this to gridItemList2 later
   for (let i = 0; i < 100; i++) {
-    // if (gridItemsList1[i].value == location && gridItemsList1[i].getAttribute("class") !="grid-item ship color-dark-blue") {
-      if (gridItemsList1[i].value == location && !gridItemsList1[i].getAttribute("class").includes("ship")) {
-      console.log(gridItemsList1[i].getAttribute("class"));
-      gridItemsList1[i].classList.remove("color-dark-blue");
-      gridItemsList1[i].classList.add("dot");
-      gridItemsList1[i].innerHTML = ".";
+      if (gridItemsList2[i].value == location && !gridItemsList2[i].getAttribute("class").includes("ship")) {
+      console.log(gridItemsList2[i].getAttribute("class"));
+      gridItemsList2[i].classList.remove("color-dark-blue");
+      gridItemsList2[i].classList.add("dot");
+      gridItemsList2[i].innerHTML = ".";
     }
   }
 }
