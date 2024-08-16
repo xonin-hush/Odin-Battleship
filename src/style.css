@@ -25,11 +25,10 @@ html {
 .color-dark-blue {
   border-color: black;
   border: solid 1px rgb(65, 21, 21);
+  border-radius: 3px;
   background-color: #1f2937;
   color: aqua;
   box-sizing: border-box;
-  border-radius: 3px;
-  
 }
 .color-sky-blue {
   background-color: skyblue;
@@ -38,16 +37,16 @@ html {
   box-sizing: border-box;
   border-radius: 3px;
 }
-.dot{
+.dot {
   font-weight: bolder;
   background-color: skyblue;
 }
-.X{
-font-weight: bolder;
-background-color: skyblue;
-color: red;
+.X {
+  font-weight: bolder;
+  background-color: skyblue;
+  color: red;
 }
-#buttons{
+#buttons {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -63,11 +62,11 @@ color: red;
   align-items: center;
   cursor: pointer;
 }
-#inputs{
+#inputs {
   display: flex;
 }
 
-form{
+form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +83,7 @@ form{
 
 .input-label label.text {
   font-size: 0.75rem;
-  color: #818CF8;
+  color: #818cf8;
   font-weight: 700;
   position: relative;
   top: 0.5rem;
@@ -94,33 +93,38 @@ form{
   width: fit-content;
 }
 
-.input-label input[type=text].input {
+.input-label input[type="text"].input {
   padding: 11px 10px;
   font-size: 0.75rem;
-  border: 2px #818CF8 solid;
+  border: 2px #818cf8 solid;
   border-radius: 5px;
   background: #e8e8e8;
 }
 
-.input-label input[type=text].input:focus {
+.input-label input[type="text"].input:focus {
   outline: none;
 }
 
-.priority-input,.date-input,#ship1,#ship2,#ship3,#ship4 {
+.priority-input,
+.date-input,
+#ship1,
+#ship2,
+#ship3,
+#ship4 {
   background-color: #e8e8e8;
   padding: 11px 10px;
-  border: 2px #818CF8 solid;
+  border: 2px #818cf8 solid;
   border-radius: 5px;
   color: #0e3d4b;
 }
 /* here ends the input card */
-option{
+option {
   background-color: #0e3d4b;
 }
 button {
-  background-color: #818CF8;
+  background-color: #818cf8;
   color: #ffffff;
-  border-color: #818CF8;
+  border-color: #818cf8;
   border-radius: 10px;
   border-style: solid;
   width: 85px;
