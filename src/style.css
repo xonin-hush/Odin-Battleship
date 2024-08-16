@@ -42,6 +42,13 @@ html {
   font-weight: bolder;
   background-color: skyblue;
 }
+
+#buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 #game-board {
   display: flex;
   justify-content: space-around;
