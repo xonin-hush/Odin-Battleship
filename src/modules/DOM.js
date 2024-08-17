@@ -7,10 +7,9 @@ import { hitShot } from "./Gameboard";
 let status = "stopped";
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
-const stopButton = document.querySelector("#stop");
-const gameBoard1 = document.querySelector("#board1");
 const gameBoard2 = document.querySelector("#board2");
 let shipsExist = false;
+let shipsAIExist = false;
 let ship1Position = "";
 let ship2Position = "";
 let ship3Position = "";
@@ -90,18 +89,21 @@ export function dotBox(location) {
 function playWithAI() {
   playAIButton.addEventListener("click", (event) => {
     event.preventDefault();
-    if (shipsInBoardOne == true) {
-      let ai = new playerAI();
-      let randomShips = ai.randomizeShips();
-      createShips(
-        randomShips[0],
-        randomShips[1],
-        randomShips[2],
-        randomShips[3],
-        2
-      );
-    } else {
-      console.log("Please enter your ships first");
+    if (shipsAIExist == false) {
+      if (shipsInBoardOne == true) {
+        let ai = new playerAI();
+        let randomShips = ai.randomizeShips();
+        createShips(
+          randomShips[0],
+          randomShips[1],
+          randomShips[2],
+          randomShips[3],
+          2
+        );
+        shipsAIExist=true
+      } else {
+        console.log("Please enter your ships first");
+      }
     }
   });
 }
