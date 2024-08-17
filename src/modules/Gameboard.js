@@ -119,10 +119,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     setStatus();
     setShipsInBoardOne(true);
   }
-// else{
-//   setStatus()
-// }
-   else {  //we don't wanna show enemy's ships
+   else {  
     renderShips(
       ship1.position,
       ship2.position,
@@ -161,8 +158,6 @@ function renderShips(ship1, ship2, ship3, ship4, boardNumber) {
       for (let i = 0; i < 100; i++) {
         if (element == gridItemsList2[i].value) {
           gridItemsList2[i].classList.add("ship");
-          gridItemsList2[i].classList.remove("color-sky-blue");
-          gridItemsList2[i].classList.add("color-dark-blue");
         }
       }
     });
