@@ -18,7 +18,6 @@ let ship4Position = "";
 export function getShipPositions() {
   submit.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("god is this working");
     clearBoards();
     ship1Position = document.querySelector("#ship1");
     ship2Position = document.querySelector("#ship2");
@@ -37,7 +36,6 @@ export function getShipPositions() {
 
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
-    console.log(e.target.getAttribute("class"));
     if (status == "started") {
       if (e.target.getAttribute("id") == "grid-item2") {
         if (e.target.getAttribute("class").includes("ship")) {
@@ -78,7 +76,6 @@ export function dotBox(location) {
       gridItemsList2[i].value == location &&
       !gridItemsList2[i].getAttribute("class").includes("ship")
     ) {
-      console.log(gridItemsList2[i].getAttribute("class"));
       gridItemsList2[i].classList.remove("color-dark-blue");
       gridItemsList2[i].classList.add("dot");
       gridItemsList2[i].innerHTML = ".";

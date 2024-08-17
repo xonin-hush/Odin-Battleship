@@ -96,7 +96,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship3.position,
     ship4.position
   );
-  console.log(arrayConcat);
   if (check_duplicate_in_array(arrayConcat).length != 0) {
     console.log(
       "Please enter a value only once in all ships in the correct order"
