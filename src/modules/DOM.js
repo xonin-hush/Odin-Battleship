@@ -31,20 +31,18 @@ export function getShipPositions() {
       ship2Position,
       ship3Position,
       ship4Position,
-      2
+      1
     );
   });
 }
 
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
-    console.log(e.target.getAttribute("class"))
+    console.log(e.target.getAttribute("class"));
     if (status == "started") {
-      
       if (e.target.getAttribute("id") == "grid-item2") {
         if (e.target.getAttribute("class").includes("ship")) {
           hitShot(e.target.value);
-          
         } else {
           dotBox(e.target.value);
         }
@@ -77,7 +75,10 @@ export function clearBoards() {
 export function dotBox(location) {
   let gridItemsList2 = document.querySelectorAll("#grid-item2"); //change this to gridItemList2 later
   for (let i = 0; i < 100; i++) {
-      if (gridItemsList2[i].value == location && !gridItemsList2[i].getAttribute("class").includes("ship")) {
+    if (
+      gridItemsList2[i].value == location &&
+      !gridItemsList2[i].getAttribute("class").includes("ship")
+    ) {
       console.log(gridItemsList2[i].getAttribute("class"));
       gridItemsList2[i].classList.remove("color-dark-blue");
       gridItemsList2[i].classList.add("dot");
@@ -88,6 +89,7 @@ export function dotBox(location) {
 
 function playWithAI() {
   playAIButton.addEventListener("click", (event) => {
+    event.preventDefault();
     if (shipsInBoardOne == true) {
       let ai = new playerAI();
       let randomShips = ai.randomizeShips();
@@ -95,7 +97,8 @@ function playWithAI() {
         randomShips[0],
         randomShips[1],
         randomShips[2],
-        randomShips[3]
+        randomShips[3],
+        2
       );
     } else {
       console.log("Please enter your ships first");

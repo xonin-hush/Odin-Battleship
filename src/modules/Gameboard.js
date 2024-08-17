@@ -118,7 +118,11 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     );
     setStatus();
     setShipsInBoardOne(true);
-  } else {
+  }
+// else{
+//   setStatus()
+// }
+   else {  //we don't wanna show enemy's ships
     renderShips(
       ship1.position,
       ship2.position,
