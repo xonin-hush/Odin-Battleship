@@ -14,7 +14,7 @@ let ship1Position = "";
 let ship2Position = "";
 let ship3Position = "";
 let ship4Position = "";
-
+let playerTurn = "";
 export function getShipPositions() {
   submit.addEventListener("click", (event) => {
     event.preventDefault();
@@ -36,12 +36,15 @@ export function getShipPositions() {
 
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
-    if (status == "started") {
-      if (e.target.getAttribute("id") == "grid-item2") {
-        if (e.target.getAttribute("class").includes("ship")) {
-          hitShot(e.target.value);
-        } else {
-          dotBox(e.target.value);
+    switchTurns();
+    if (playerTurn == "player1") {
+      if (status == "started") {
+        if (e.target.getAttribute("id") == "grid-item2") {
+          if (e.target.getAttribute("class").includes("ship")) {
+            hitShot(e.target.value);
+          } else {
+            dotBox(e.target.value);
+          }
         }
       }
     }
@@ -97,12 +100,26 @@ function playWithAI() {
           randomShips[3],
           2
         );
-        shipsAIExist=true
+        shipsAIExist = true;
       } else {
         console.log("Please enter your ships first");
       }
     }
   });
+}
+
+export function switchTurns() {
+  if (shipsAIExist == true) {
+    if (playerTurn == "player1") {
+      playerTurn = "playerAI";
+    } else {
+      playerTurn = "player1";
+      //AI turn to play
+    }
+  } else {
+    return;
+  }
+  console.log(playerTurn);
 }
 
 export function setStatus() {

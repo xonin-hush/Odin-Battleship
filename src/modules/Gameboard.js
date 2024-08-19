@@ -46,7 +46,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   let ship2Position = ship2P;
   let ship3Position = ship3P;
   let ship4Position = ship4P;
-
   if (ship1Position.value == (undefined || null)) {
     ship1 = new Ship(1, ship1Position);
   } else {
@@ -181,15 +180,6 @@ export function receiveAttack(location) {
       }
     }
   }
-  return "SHIP-HIT";
-  // else {
-  //   gridItemsList[i].setAttribute("class", "missed");
-  //   return "SHIP-MISS";
-  // }
-}
-
-export function setShipsInBoardOne(trueFalse) {
-  shipsInBoardOne = trueFalse;
 }
 
 export function hitShot(itemNumber) {
@@ -209,3 +199,9 @@ export function hitShot(itemNumber) {
 }
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
+
+
+
+export function setShipsInBoardOne(trueFalse) {
+  shipsInBoardOne = trueFalse;
+}
