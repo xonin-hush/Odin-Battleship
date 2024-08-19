@@ -1,10 +1,12 @@
 import { Ship } from "./ship";
-import { clearBoards } from "./DOM";
 import { dotBox } from "./DOM";
 import { setStatus } from "./DOM";
-let gridItemsList = "";
 let gridItemsList1 = "";
 let gridItemsList2 = "";
+let ship1 = "";
+let ship2 = "";
+let ship3 = "";
+let ship4 = "";
 const boardContainer1 = document.querySelector("#board1");
 boardContainer1.value = 1;
 const boardContainer2 = document.querySelector("#board2");
@@ -44,10 +46,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   let ship2Position = ship2P;
   let ship3Position = ship3P;
   let ship4Position = ship4P;
-  let ship1 = "";
-  let ship2 = "";
-  let ship3 = "";
-  let ship4 = "";
+
   if (ship1Position.value == (undefined || null)) {
     ship1 = new Ship(1, ship1Position);
   } else {
@@ -117,8 +116,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     );
     setStatus();
     setShipsInBoardOne(true);
-  }
-   else {  
+  } else {
     renderShips(
       ship1.position,
       ship2.position,
@@ -164,35 +162,30 @@ function renderShips(ship1, ship2, ship3, ship4, boardNumber) {
 }
 
 export function receiveAttack(location) {
-  for (let i = 0; i < 100; i++) {
-    if (location == gridItemsList[i].value) {
-      if (gridItemsList[i].getAttribute("class") == "color-dark-blue") {
-        if (ship1.position.includes(location)) {
-          ship1.hit();
-          ship1.isSunk();
-        } else {
-          if (ship2.position.includes(location)) {
-            ship2.hit();
-            ship2.isSunk();
-          } else {
-            if (ship3.position.includes(location)) {
-              ship3.hit();
-              ship3.isSunk();
-            } else {
-              if (ship4.position.includes(location)) {
-                ship4.hit();
-                ship4.isSunk();
-              }
-            }
-          }
-        }
-        return "SHIP-HIT";
+  if (ship1.position.includes(location)) {
+    ship1.hit();
+    ship1.isSunk()
+  } else {
+    if (ship2.position.includes(location)) {
+      ship2.hit();
+      ship2.isSunk()
+    } else {
+      if (ship3.position.includes(location)) {
+        ship3.hit();
+        ship3.isSunk()
       } else {
-        gridItemsList[i].setAttribute("class", "missed");
-        return "SHIP-MISS";
+        if (ship4.position.includes(location)) {
+          ship4.hit();
+          ship4.isSunk()
+        }
       }
     }
   }
+  return "SHIP-HIT";
+  // else {
+  //   gridItemsList[i].setAttribute("class", "missed");
+  //   return "SHIP-MISS";
+  // }
 }
 
 export function setShipsInBoardOne(trueFalse) {
@@ -201,13 +194,14 @@ export function setShipsInBoardOne(trueFalse) {
 
 export function hitShot(itemNumber) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
-          for (let i = 0; i < 100; i++) {
-            if (gridItemsList[i].value == itemNumber) {
-              gridItemsList[i].classList.remove("color-dark-blue");
-              gridItemsList[i].classList.add("X");
-              gridItemsList[i].innerHTML = "X";
-            }
-          }
+  for (let i = 0; i < 100; i++) {
+    if (gridItemsList[i].value == itemNumber) {
+      receiveAttack(itemNumber);
+      gridItemsList[i].classList.remove("color-dark-blue");
+      gridItemsList[i].classList.add("X");
+      gridItemsList[i].innerHTML = "X";
+    }
+  }
   dotBox(itemNumber + 11);
   dotBox(itemNumber + 11 - 2);
   dotBox(itemNumber - 11);
