@@ -12,6 +12,13 @@ html {
   padding: 0px;
   margin: 0px;
 }
+
+#header {
+  width: 100%;
+  background-color: #967bb6;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
 .grid-container {
   display: grid;
   background-color: rgb(253, 193, 82);
