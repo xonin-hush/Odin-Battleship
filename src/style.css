@@ -131,9 +131,14 @@ option {
   background-color: #0e3d4b;
 }
 button {
-  background-color: #818cf8;
-  color: #ffffff;
-  border-color: #818cf8;
+  background-color: #cde4cd;
+  color: #967bb6;
+  border-left:0.2rem ;
+  border-top:0.2rem ;
+  border-bottom:0.2rem ;
+  border-right:0.2rem ;
+color: #1f2937;
+  border-color: #967bb6;
   border-radius: 10px;
   border-style: solid;
   width: 85px;
