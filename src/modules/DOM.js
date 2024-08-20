@@ -36,7 +36,6 @@ export function getShipPositions() {
 }
 function showDialog1() {
   playButton.addEventListener("click", (event) => {
-    console.log("hello");
     dialog.showModal();
   });
 }
