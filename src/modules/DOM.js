@@ -1,4 +1,3 @@
-import { random } from "lodash";
 import { createShips } from "./Gameboard";
 import { playerAI } from "./player";
 import { shipsInBoardOne } from "./Gameboard";

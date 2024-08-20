@@ -26,10 +26,10 @@ html {
 }
 .grid-container {
   display: grid;
-  background-color: rgb(253, 193, 82);
+  background-color: #967bb6;
   width: 40rem;
   height: 40rem;
-  border: 1rem solid rgb(253, 193, 82);
+  border: 1rem solid #967bb6;
   border-radius: 10px;
   margin-bottom: 8px;
   margin-top: 40px;
@@ -39,11 +39,11 @@ html {
   border: solid 1px rgb(65, 21, 21);
   border-radius: 3px;
   background-color: #1f2937;
-  color: aqua;
+  color: #cde4cd;
   box-sizing: border-box;
 }
 .color-sky-blue {
-  background-color: skyblue;
+  background-color: #cde4cd;
   border-color: black;
   border: solid 1px rgb(65, 21, 21);
   box-sizing: border-box;
@@ -51,11 +51,13 @@ html {
 }
 .dot {
   font-weight: bolder;
-  background-color: skyblue;
+  background-color: #1f2937;
+  color: #cde4cd;
+
 }
 .X {
   font-weight: bolder;
-  background-color: skyblue;
+  background-color: #1f2937;
   color: red;
 }
 
