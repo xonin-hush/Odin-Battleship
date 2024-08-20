@@ -104,7 +104,9 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     console.log(
       "Please enter a value only once in all ships in the correct order"
     );
-    headerConsole("Please enter a value only once in all ships in the correct order");
+    headerConsole(
+      "Please enter a value only once in all ships in the correct order"
+    );
 
     ship1 = "";
     ship2 = "";
@@ -171,19 +173,19 @@ function renderShips(ship1, ship2, ship3, ship4, boardNumber) {
 export function receiveAttack(location) {
   if (ship1.position.includes(location)) {
     ship1.hit();
-    ship1.isSunk()
+    ship1.isSunk();
   } else {
     if (ship2.position.includes(location)) {
       ship2.hit();
-      ship2.isSunk()
+      ship2.isSunk();
     } else {
       if (ship3.position.includes(location)) {
         ship3.hit();
-        ship3.isSunk()
+        ship3.isSunk();
       } else {
         if (ship4.position.includes(location)) {
           ship4.hit();
-          ship4.isSunk()
+          ship4.isSunk();
         }
       }
     }
@@ -208,10 +210,19 @@ export function hitShot(itemNumber) {
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
 
-
-
+function CheckWin() {
+  boardContainer2.addEventListener("click", (event) => {
+    if (
+      ship1.isSunk() == true &&
+      ship4.isSunk() == true &&
+      ship3.isSunk() == true &&
+      ship2.isSunk() == true
+    ) {
+      headerConsole("Game Over You Win")
+    }
+  });
+}
+CheckWin()
 export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }
-
-console.log("wtf is happening")
