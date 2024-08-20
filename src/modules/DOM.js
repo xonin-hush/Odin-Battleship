@@ -8,6 +8,8 @@ let status = "stopped";
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
 const gameBoard2 = document.querySelector("#board2");
+const dialog = document.querySelector("#ships-dialog");
+const playButton = document.querySelector("#play-button");
 let shipsExist = false;
 let shipsAIExist = false;
 let ship1Position = "";
@@ -33,7 +35,12 @@ export function getShipPositions() {
     );
   });
 }
-
+function showDialog1() {
+  playButton.addEventListener("click", (event) => {
+    console.log("hello");
+    dialog.showModal();
+  });
+}
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
     switchTurns();
@@ -103,6 +110,7 @@ function playWithAI() {
         shipsAIExist = true;
       } else {
         console.log("Please enter your ships first");
+        headerConsole("Please enter your ships first");
       }
     }
   });
@@ -120,6 +128,12 @@ export function switchTurns() {
     return;
   }
   console.log(playerTurn);
+  headerConsole(playerTurn);
+}
+
+export function headerConsole(phrase = "") {
+  let header = document.querySelector("#header");
+  header.innerHTML = phrase;
 }
 
 export function setStatus() {
@@ -129,3 +143,4 @@ export function setStatus() {
 playWithAI();
 clickAttack();
 getShipPositions();
+showDialog1();

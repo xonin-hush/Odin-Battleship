@@ -1,6 +1,7 @@
 import { Ship } from "./ship";
 import { dotBox } from "./DOM";
 import { setStatus } from "./DOM";
+import { headerConsole } from "./DOM";
 let gridItemsList1 = "";
 let gridItemsList2 = "";
 let ship1 = "";
@@ -53,6 +54,8 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   }
   if (ship1.checkPositionValues(ship1.position, ship1.length) == false) {
     console.log("Enter the sequential values in the correct format");
+    headerConsole("Enter the sequential values in the correct format");
+
     ship1 = "";
     return;
   }
@@ -64,6 +67,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   }
   if (ship2.checkPositionValues(ship2.position, ship2.length) == false) {
     console.log("Enter the sequential values in the correct format");
+    headerConsole("Enter the sequential values in the correct format");
     ship2 = "";
     return;
   }
@@ -74,6 +78,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   }
   if (ship3.checkPositionValues(ship3.position, ship3.length) == false) {
     console.log("Enter the sequential values in the correct format");
+    headerConsole("Enter the sequential values in the correct format");
     ship3 = "";
     return;
   }
@@ -85,6 +90,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
   }
   if (ship4.checkPositionValues(ship4.position, ship4.length) == false) {
     console.log("Enter the sequential values in the correct format");
+    headerConsole("Enter the sequential values in the correct format");
     ship4 = "";
     return;
   }
@@ -98,6 +104,8 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     console.log(
       "Please enter a value only once in all ships in the correct order"
     );
+    headerConsole("Please enter a value only once in all ships in the correct order");
+
     ship1 = "";
     ship2 = "";
     ship3 = "";
@@ -205,3 +213,5 @@ createGrid(10, boardContainer2, "secondBoard");
 export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }
+
+console.log("wtf is happening")

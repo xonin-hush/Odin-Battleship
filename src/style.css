@@ -18,6 +18,11 @@ html {
   background-color: #967bb6;
   font-weight: bolder;
   margin-bottom: 1rem;
+  display: block;
+  font-size: 2em;
+  padding: 1.5rem;
+  font-weight: bold;
+  unicode-bidi: isolate;
 }
 .grid-container {
   display: grid;
@@ -53,16 +58,17 @@ html {
   background-color: skyblue;
   color: red;
 }
-#buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
 
 #game-board {
   display: flex;
   justify-content: space-around;
 }
+
+#ships-dialog{
+  background-color: #1f2937;
+  
+}
+
 .grid-item {
   display: flex;
   justify-content: center;
@@ -71,13 +77,6 @@ html {
 }
 #inputs {
   display: flex;
-}
-
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: antiquewhite;
 }
 
 .input-label {
@@ -90,7 +89,7 @@ form {
 
 .input-label label.text {
   font-size: 0.75rem;
-  color: #818cf8;
+  color: #967bb6;
   font-weight: 700;
   position: relative;
   top: 0.5rem;
@@ -103,7 +102,7 @@ form {
 .input-label input[type="text"].input {
   padding: 11px 10px;
   font-size: 0.75rem;
-  border: 2px #818cf8 solid;
+  border: 2px #967bb6 solid;
   border-radius: 5px;
   background: #e8e8e8;
 }
@@ -120,7 +119,7 @@ form {
 #ship4 {
   background-color: #e8e8e8;
   padding: 11px 10px;
-  border: 2px #818cf8 solid;
+  border: 2px #967bb6 solid;
   border-radius: 5px;
   color: #0e3d4b;
 }
