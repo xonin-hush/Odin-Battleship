@@ -107,6 +107,8 @@ function playWithAI() {
           randomShips[3],
           2
         );
+        dialog.close()
+        headerConsole("You go first")
         shipsAIExist = true;
       } else {
         console.log("Please enter your ships first");
