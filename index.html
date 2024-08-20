@@ -6,6 +6,7 @@
     <title>BattleShip</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="../src/style.css" />
+    <link rel="stylesheet" href="../src/dialog.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.projectDialog.com" crossorigin />
     <link
@@ -15,14 +16,15 @@
     <script src="./main.js" defer="defer"></script>
   </head>
   <body>
-    <header id="header"><h1>hello</h1></header>
+    <header id="header">hello</header>
     <div id="game-board">
       <div id="board1"></div>
       <div id="board2"></div>
     </div>
-    <form>
+    <button id="play-button">Play</button>
+      <dialog id="ships-dialog">
+        <form>
       Enter your ships' positions
-      <div>
       <div class="label-input"  >
         <label for="ship1" id="ship1-label">Ship1 (length of 1)</label>
           <input type="text" id="ship1" name="ship1" required>
@@ -45,6 +47,6 @@
 <button id="stop">stop</button></div>
   </form>
 
-    </div>
+</dialog>
   </body>
 </html>
