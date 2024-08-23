@@ -3,12 +3,15 @@ import { playerAI } from "./player";
 import { shipsInBoardOne } from "./Gameboard";
 import { setShipsInBoardOne } from "./Gameboard";
 import { hitShot } from "./Gameboard";
+import { once } from "lodash";
 let status = "stopped";
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
+const gameBoard1 = document.querySelector("#board2");
 const gameBoard2 = document.querySelector("#board2");
 const dialog = document.querySelector("#ships-dialog");
 const playButton = document.querySelector("#play-button");
+let L = new playerAI();
 let shipsExist = false;
 let shipsAIExist = false;
 let ship1Position = "";
@@ -41,21 +44,49 @@ function showDialog1() {
 }
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
-    switchTurns();
-    if (playerTurn == "player1") {
+    // switchTurns();
+    // if (playerTurn == "player1") {
       if (status == "started") {
         if (e.target.getAttribute("id") == "grid-item2") {
           if (e.target.getAttribute("class").includes("ship")) {
             hitShot(e.target.value);
+            AIclickAttack(L.attackAI());
           } else {
             dotBox(e.target.value);
+            AIclickAttack(L.attackAI());
           }
         }
       }
-    }
+    // }
   });
 }
-
+function AIclickAttack(location) {
+  let gridItemsList = document.querySelectorAll("#grid-item1");
+  let gridItem = "";
+  for (let i = 0; i < 100; i++) {
+    if (gridItemsList[i].value == location) {
+      console.log("testing", gridItemsList[i]);
+      gridItem = gridItemsList[i];
+      break;
+    }
+  }
+  // if (playerTurn == "playerAI") {
+  if (status == "started") {
+    console.log(gridItem);
+    if (gridItem.getAttribute("id") == "grid-item1") {
+      console.log("hello?");
+      if (gridItem.getAttribute("class").includes("ship")) {
+        hitShot(location, "playerAI");
+        console.log(gridItem);
+      } else {
+        dotBox(location, "playerAI");
+        console.log(gridItem);
+      }
+    }
+  }
+  // }
+  // switchTurns()
+}
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
   for (let i = 0; i < 100; i++) {
@@ -77,16 +108,21 @@ export function clearBoards() {
   }
 }
 
-export function dotBox(location) {
-  let gridItemsList2 = document.querySelectorAll("#grid-item2"); //change this to gridItemList2 later
+export function dotBox(location, player2 = "") {
+  let gridItemsList = "";
+  if (player2 == "") {
+    gridItemsList = document.querySelectorAll("#grid-item2");
+  } else {
+    gridItemsList = document.querySelectorAll("#grid-item1");
+  }
   for (let i = 0; i < 100; i++) {
     if (
-      gridItemsList2[i].value == location &&
-      !gridItemsList2[i].getAttribute("class").includes("ship")
+      gridItemsList[i].value == location &&
+      !gridItemsList[i].getAttribute("class").includes("ship")
     ) {
-      gridItemsList2[i].classList.remove("color-dark-blue");
-      gridItemsList2[i].classList.add("dot");
-      gridItemsList2[i].innerHTML = ".";
+      gridItemsList[i].classList.remove("color-dark-blue");
+      gridItemsList[i].classList.add("dot");
+      gridItemsList[i].innerHTML = ".";
     }
   }
 }
@@ -105,8 +141,8 @@ function playWithAI() {
           randomShips[3],
           2
         );
-        dialog.close()
-        headerConsole("You go first")
+        dialog.close();
+        headerConsole("You go first");
         shipsAIExist = true;
       } else {
         console.log("Please enter your ships first");
@@ -114,22 +150,25 @@ function playWithAI() {
       }
     }
   });
+  // switchTurns()
 }
 
-export function switchTurns() {
-  if (shipsAIExist == true) {
-    if (playerTurn == "player1") {
-      playerTurn = "playerAI";
-    } else {
-      playerTurn = "player1";
-      //AI turn to play
-    }
-  } else {
-    return;
-  }
-  console.log(playerTurn);
-  headerConsole(playerTurn);
-}
+// export function switchTurns() {
+//   let L = new playerAI();
+//   if (shipsAIExist == true) {
+//     if (playerTurn == "player1") {
+//       playerTurn = "playerAI";
+//     } else {
+//       playerTurn = "player1";
+//       AIclickAttack(L.attackAI());
+//       //AI turn to play
+//     }
+//   } else {
+//     return;
+//   }
+//   console.log(playerTurn);
+//   headerConsole(playerTurn);
+// }
 
 export function headerConsole(phrase = "") {
   let header = document.querySelector("#header");

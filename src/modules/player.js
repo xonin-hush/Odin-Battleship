@@ -16,11 +16,16 @@ export class playerAI {
     let ship3 = [ship3Temp, ship3Temp + 1, ship3Temp + 2];
     let ship4Temp = Math.floor(Math.random() * 100) + 1;
     let ship4 = [ship4Temp, ship4Temp + 1, ship4Temp + 2, ship4Temp + 3];
-    console.log(ship4)
+    console.log(ship4);
     let concatTemp = ship1.concat(ship2Temp, ship2, ship3, ship4);
-    console.log("shipss",concatTemp);
-    return [ship1, [ship2Temp, ship2], ship3, ship4]
+    console.log("shipss", concatTemp);
+    return [ship1, [ship2Temp, ship2], ship3, ship4];
+  }
+
+  attackAI() {
+    let randomBox = Math.floor(Math.random() * 100);
+    return randomBox
   }
 }
 let L = new playerAI();
-console.log(L.randomizeShips())
+console.log(L.randomizeShips());

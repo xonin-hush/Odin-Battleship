@@ -192,8 +192,13 @@ export function receiveAttack(location) {
   }
 }
 
-export function hitShot(itemNumber) {
-  let gridItemsList = document.querySelectorAll("#grid-item2");
+export function hitShot(itemNumber, player2 = "") {
+  let gridItemsList=""
+  if (player2 == "") {
+    gridItemsList = document.querySelectorAll("#grid-item2");
+  } else {
+   gridItemsList = document.querySelectorAll("#grid-item1");
+  }
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == itemNumber) {
       receiveAttack(itemNumber);
@@ -210,19 +215,19 @@ export function hitShot(itemNumber) {
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
 
-function CheckWin() {
-  boardContainer2.addEventListener("click", (event) => {
-    if (
-      ship1.isSunk() == true &&
-      ship4.isSunk() == true &&
-      ship3.isSunk() == true &&
-      ship2.isSunk() == true
-    ) {
-      headerConsole("Game Over You Win")
-    }
-  });
-}
-CheckWin()
+// function CheckWin() {
+//   boardContainer2.addEventListener("click", (event) => {
+//     if (
+//       ship1.isSunk() == true &&
+//       ship4.isSunk() == true &&
+//       ship3.isSunk() == true &&
+//       ship2.isSunk() == true
+//     ) {
+//       headerConsole("Game Over You Win");
+//     }
+//   });
+// }
+// CheckWin();
 export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }
