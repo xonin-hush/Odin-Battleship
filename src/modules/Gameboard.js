@@ -8,6 +8,11 @@ let ship1 = "";
 let ship2 = "";
 let ship3 = "";
 let ship4 = "";
+let ship1Board1=""
+let ship2Board1=""
+let ship3Board1=""
+let ship4Board1=""
+
 const boardContainer1 = document.querySelector("#board1");
 boardContainer1.value = 1;
 const boardContainer2 = document.querySelector("#board2");
@@ -116,6 +121,10 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     return;
   }
   if (boardNumber == 1) {
+    ship1Board1=ship1
+    ship2Board1=ship2
+    ship3Board1=ship3
+    ship4Board1=ship4
     renderShips(
       ship1.position,
       ship2.position,
@@ -215,19 +224,16 @@ export function hitShot(itemNumber, player2 = "") {
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
 
-// function CheckWin() {
-//   boardContainer2.addEventListener("click", (event) => {
-//     if (
-//       ship1.isSunk() == true &&
-//       ship4.isSunk() == true &&
-//       ship3.isSunk() == true &&
-//       ship2.isSunk() == true
-//     ) {
-//       headerConsole("Game Over You Win");
-//     }
-//   });
-// }
-// CheckWin();
+function CheckWin() {
+  //this function is to sink whole ship if ai hits it once
+  window.addEventListener("click", (e) => {
+    console.log("testing",ship3Board1)
+    if(ship3Board1.position.includes(Number(e.target.innerHTML))){
+      console.log("trueee")
+    }
+  });
+}
+CheckWin();
 export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }

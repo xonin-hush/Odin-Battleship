@@ -3,11 +3,9 @@ import { playerAI } from "./player";
 import { shipsInBoardOne } from "./Gameboard";
 import { setShipsInBoardOne } from "./Gameboard";
 import { hitShot } from "./Gameboard";
-import { once } from "lodash";
 let status = "stopped";
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
-const gameBoard1 = document.querySelector("#board2");
 const gameBoard2 = document.querySelector("#board2");
 const dialog = document.querySelector("#ships-dialog");
 const playButton = document.querySelector("#play-button");
@@ -44,8 +42,6 @@ function showDialog1() {
 }
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
-    // switchTurns();
-    // if (playerTurn == "player1") {
       if (status == "started") {
         if (e.target.getAttribute("id") == "grid-item2") {
           if (e.target.getAttribute("class").includes("ship")) {
@@ -57,7 +53,6 @@ function clickAttack() {
           }
         }
       }
-    // }
   });
 }
 function AIclickAttack(location) {
@@ -65,27 +60,19 @@ function AIclickAttack(location) {
   let gridItem = "";
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == location) {
-      console.log("testing", gridItemsList[i]);
       gridItem = gridItemsList[i];
       break;
     }
   }
-  // if (playerTurn == "playerAI") {
   if (status == "started") {
-    console.log(gridItem);
     if (gridItem.getAttribute("id") == "grid-item1") {
-      console.log("hello?");
       if (gridItem.getAttribute("class").includes("ship")) {
         hitShot(location, "playerAI");
-        console.log(gridItem);
       } else {
         dotBox(location, "playerAI");
-        console.log(gridItem);
       }
     }
   }
-  // }
-  // switchTurns()
 }
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
@@ -109,6 +96,9 @@ export function clearBoards() {
 }
 
 export function dotBox(location, player2 = "") {
+  if((location<0)||(location>100)){
+    return
+  }
   let gridItemsList = "";
   if (player2 == "") {
     gridItemsList = document.querySelectorAll("#grid-item2");
