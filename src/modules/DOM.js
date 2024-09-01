@@ -3,6 +3,7 @@ import { playerAI } from "./player";
 import { shipsInBoardOne } from "./Gameboard";
 import { setShipsInBoardOne } from "./Gameboard";
 import { hitShot } from "./Gameboard";
+import { hardAI } from "./Gameboard";
 let status = "stopped";
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
@@ -42,17 +43,19 @@ function showDialog1() {
 }
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
-      if (status == "started") {
-        if (e.target.getAttribute("id") == "grid-item2") {
-          if (e.target.getAttribute("class").includes("ship")) {
-            hitShot(e.target.value);
-            AIclickAttack(L.attackAI());
-          } else {
-            dotBox(e.target.value);
-            AIclickAttack(L.attackAI());
-          }
+    if (status == "started") {
+      if (e.target.getAttribute("id") == "grid-item2") {
+        if (e.target.getAttribute("class").includes("ship")) {
+          hitShot(e.target.value);
+          let temp = L.attackAI();
+          AIclickAttack(temp);
+        } else {
+          dotBox(e.target.value);
+          let temp = L.attackAI();
+          AIclickAttack(temp);
         }
       }
+    }
   });
 }
 function AIclickAttack(location) {
@@ -73,6 +76,7 @@ function AIclickAttack(location) {
       }
     }
   }
+  hardAI(location)
 }
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
@@ -96,8 +100,8 @@ export function clearBoards() {
 }
 
 export function dotBox(location, player2 = "") {
-  if((location<0)||(location>100)){
-    return
+  if (location < 0 || location > 100) {
+    return;
   }
   let gridItemsList = "";
   if (player2 == "") {
