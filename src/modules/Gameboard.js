@@ -125,10 +125,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship2Board1 = ship2;
     ship3Board1 = ship3;
     ship4Board1 = ship4;
-    console.log("this baby",ship1Board1)
-    console.log(ship2Board1)
-    console.log(ship3Board1)
-    console.log(ship4Board1)
 
     renderShips(
       ship1.position,
@@ -241,18 +237,15 @@ createGrid(10, boardContainer2, "secondBoard");
 export function hardAI(attackLocation) {
   //this function is to sink whole ship if ai hits it once
 
-    console.log("testing", ship3Board1);
     if (ship1Board1.position.includes(attackLocation)) {
       ship1Board1.hit();
       hitShot(ship1Board1.position,"playerAI");
-      console.log("trueee");
     }
     if (ship2Board1.position.includes(attackLocation)) {
       ship2Board1.hit();
       ship2Board1.hit();
       hitShot(ship2Board1.position[0],"playerAI");
       hitShot(ship2Board1.position[1],"playerAI");
-      console.log("trueee");
     }
     if (ship3Board1.position.includes(attackLocation)) {
       ship3Board1.hit();
@@ -261,20 +254,17 @@ export function hardAI(attackLocation) {
       hitShot(ship3Board1.position[0],"playerAI");
       hitShot(ship3Board1.position[1],"playerAI");
       hitShot(ship3Board1.position[2],"playerAI");
-      console.log("trueee");
     }
-    // if (ship4Board1.position.includes(attackLocation)) {
+    if (ship4Board1.position.includes(attackLocation)) {
       ship4Board1.hit();
       ship4Board1.hit();
       ship4Board1.hit();
       ship4Board1.hit();
-      console.log("this?",ship4Board1.position)
       hitShot(ship4Board1.position[0],"playerAI");
       hitShot(ship4Board1.position[1],"playerAI");
       hitShot(ship4Board1.position[2],"playerAI");
       hitShot(ship4Board1.position[3],"playerAI");
-      console.log("trueee");
-    // }
+    }
   }
 hardAI();
 export function setShipsInBoardOne(trueFalse) {
