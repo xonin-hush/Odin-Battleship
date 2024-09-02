@@ -136,7 +136,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     setStatus();
     setShipsInBoardOne(true);
   } else {
-    
     renderShips(
       ship1.position,
       ship2.position,
@@ -218,6 +217,7 @@ export function hitShot(itemNumber, player2 = "") {
   } else {
     gridItemsList = document.querySelectorAll("#grid-item1");
   }
+  console.log(gridItemsList);
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == itemNumber) {
       receiveAttack(itemNumber);
@@ -226,10 +226,17 @@ export function hitShot(itemNumber, player2 = "") {
       gridItemsList[i].innerHTML = "X";
     }
   }
-  dotBox(itemNumber + 11);
-  dotBox(itemNumber + 11 - 2);
-  dotBox(itemNumber - 11);
-  dotBox(itemNumber - 11 + 2);
+  if (player2 == "") {
+    dotBox(itemNumber + 11);
+    dotBox(itemNumber + 11 - 2);
+    dotBox(itemNumber - 11);
+    dotBox(itemNumber - 11 + 2);
+  } else {
+    dotBox(itemNumber + 11, "playerAI");
+    dotBox(itemNumber + 11 - 2, "playerAI");
+    dotBox(itemNumber - 11, "playerAI");
+    dotBox(itemNumber - 11 + 2, "playerAI");
+  }
 }
 createGrid(10, boardContainer1, "firstBoard");
 createGrid(10, boardContainer2, "secondBoard");
@@ -237,36 +244,35 @@ createGrid(10, boardContainer2, "secondBoard");
 export function hardAI(attackLocation) {
   //this function is to sink whole ship if ai hits it once
 
-    if (ship1Board1.position.includes(attackLocation)) {
-      ship1Board1.hit();
-      hitShot(ship1Board1.position,"playerAI");
-    }
-    if (ship2Board1.position.includes(attackLocation)) {
-      ship2Board1.hit();
-      ship2Board1.hit();
-      hitShot(ship2Board1.position[0],"playerAI");
-      hitShot(ship2Board1.position[1],"playerAI");
-    }
-    if (ship3Board1.position.includes(attackLocation)) {
-      ship3Board1.hit();
-      ship3Board1.hit();
-      ship3Board1.hit();
-      hitShot(ship3Board1.position[0],"playerAI");
-      hitShot(ship3Board1.position[1],"playerAI");
-      hitShot(ship3Board1.position[2],"playerAI");
-    }
-    if (ship4Board1.position.includes(attackLocation)) {
-      ship4Board1.hit();
-      ship4Board1.hit();
-      ship4Board1.hit();
-      ship4Board1.hit();
-      hitShot(ship4Board1.position[0],"playerAI");
-      hitShot(ship4Board1.position[1],"playerAI");
-      hitShot(ship4Board1.position[2],"playerAI");
-      hitShot(ship4Board1.position[3],"playerAI");
-    }
+  if (ship1Board1.position.includes(attackLocation)) {
+    ship1Board1.hit();
+    hitShot(ship1Board1.position, "playerAI");
   }
-hardAI();
+  if (ship2Board1.position.includes(attackLocation)) {
+    ship2Board1.hit();
+    ship2Board1.hit();
+    hitShot(ship2Board1.position[0], "playerAI");
+    hitShot(ship2Board1.position[1], "playerAI");
+  }
+  if (ship3Board1.position.includes(attackLocation)) {
+    ship3Board1.hit();
+    ship3Board1.hit();
+    ship3Board1.hit();
+    hitShot(ship3Board1.position[0], "playerAI");
+    hitShot(ship3Board1.position[1], "playerAI");
+    hitShot(ship3Board1.position[2], "playerAI");
+  }
+  if (ship4Board1.position.includes(attackLocation)) {
+    ship4Board1.hit();
+    ship4Board1.hit();
+    ship4Board1.hit();
+    ship4Board1.hit();
+    hitShot(ship4Board1.position[0], "playerAI");
+    hitShot(ship4Board1.position[1], "playerAI");
+    hitShot(ship4Board1.position[2], "playerAI");
+    hitShot(ship4Board1.position[3], "playerAI");
+  }
+}
 export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }
