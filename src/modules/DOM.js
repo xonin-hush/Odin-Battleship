@@ -76,7 +76,7 @@ function AIclickAttack(location) {
       }
     }
   }
-  hardAI(location)
+  hardAI(location);
 }
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
@@ -122,19 +122,22 @@ export function dotBox(location, player2 = "") {
 }
 
 function playWithAI() {
+  let temp = "";
   playAIButton.addEventListener("click", (event) => {
     event.preventDefault();
     if (shipsAIExist == false) {
       if (shipsInBoardOne == true) {
-        let ai = new playerAI();
-        let randomShips = ai.randomizeShips();
-        createShips(
-          randomShips[0],
-          randomShips[1],
-          randomShips[2],
-          randomShips[3],
-          2
-        );
+        do {
+          let ai = new playerAI();
+          let randomShips = ai.randomizeShips();
+          temp = createShips(
+            randomShips[0],
+            randomShips[1],
+            randomShips[2],
+            randomShips[3],
+            2
+          );
+        } while (temp == "tryAgain");
         dialog.close();
         headerConsole("You go first");
         shipsAIExist = true;

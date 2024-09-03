@@ -62,7 +62,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     headerConsole("Enter the sequential values in the correct format");
 
     ship1 = "";
-    return;
+    return "tryAgain";
   }
 
   if (ship2Position.value == (undefined || null)) {
@@ -74,7 +74,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
     ship2 = "";
-    return;
+    return "tryAgain";
   }
   if (ship3Position.value == (undefined || null)) {
     ship3 = new Ship(3, ship3Position);
@@ -85,7 +85,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
     ship3 = "";
-    return;
+    return "tryAgain";
   }
 
   if (ship4Position.value == (undefined || null)) {
@@ -97,7 +97,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
     ship4 = "";
-    return;
+    return "tryAgain";
   }
 
   arrayConcat = ship1.position.concat(
@@ -118,7 +118,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship3 = "";
     ship4 = "";
     arrayConcat = "";
-    return;
+    return "tryAgain";
   }
   if (boardNumber == 1) {
     ship1Board1 = ship1;
@@ -202,12 +202,6 @@ export function receiveAttack(location, player = "") {
       }
     }
   }
-  // else {
-  //   if(ship1Board1.position.includes(location)){
-  //     ship1Board1.hit();
-  //     ship1Board1.isSunk()
-  //   }
-  // }
 }
 
 export function hitShot(itemNumber, player2 = "") {
@@ -217,7 +211,6 @@ export function hitShot(itemNumber, player2 = "") {
   } else {
     gridItemsList = document.querySelectorAll("#grid-item1");
   }
-  console.log(gridItemsList);
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == itemNumber) {
       receiveAttack(itemNumber);

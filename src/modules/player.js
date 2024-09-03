@@ -1,10 +1,5 @@
 import { createGrid } from "./Gameboard";
 import { getShipPositions } from "./DOM";
-// export class playerOne{
-// constructor(){
-// this.something=""
-// }
-// }
 
 export class playerAI {
   randomizeShips() {
