@@ -69,14 +69,11 @@ function AIclickAttack(location) {
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == location) {
       gridItem = gridItemsList[i];
-      console.log({gridItem})
       break;
     }
   }
   if (status == "started") {
-    console.log(gridItem.getAttribute("id"));
     if (gridItem.getAttribute("id") == "grid-item1") {
-      console.log(gridItem.getAttribute("class"));
       if (
         gridItem.getAttribute("class") == "color-green-mist grid-item" ||
         gridItem.getAttribute("class") == "grid-item ship color-dark-blue"
@@ -188,8 +185,11 @@ export function headerConsole(phrase = "") {
   header.innerHTML = phrase;
 }
 
-export function setStatus() {
+export function setStatus(statusType = "") {
   status = "started";
+  if (statusType == "stopped") {
+    status = "stopped";
+  }
 }
 
 playWithAI();

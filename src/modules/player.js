@@ -1,6 +1,7 @@
 import { createGrid } from "./Gameboard";
 import { getShipPositions } from "./DOM";
 import { headerConsole } from "./DOM";
+import { setStatus } from "./DOM";
 let player1Score = 0;
 let playerAIScore = 0;
 export function checkWin(playerType = "") {
@@ -10,9 +11,11 @@ export function checkWin(playerType = "") {
     player1Score++;
   }
   if (player1Score >= 4) {
+    setStatus("stopped")
     headerConsole("Congrats You Win");
   }
   if (playerAIScore == 4) {
+    setStatus("stopped")
     headerConsole("You Lost AI Beats You");
   }
   console.log({player1Score})
