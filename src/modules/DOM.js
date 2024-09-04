@@ -163,23 +163,6 @@ function playWithAI() {
   });
 }
 
-// export function switchTurns() {
-//   let L = new playerAI();
-//   if (shipsAIExist == true) {
-//     if (playerTurn == "player1") {
-//       playerTurn = "playerAI";
-//     } else {
-//       playerTurn = "player1";
-//       AIclickAttack(L.attackAI());
-//       //AI turn to play
-//     }
-//   } else {
-//     return;
-//   }
-//   console.log(playerTurn);
-//   headerConsole(playerTurn);
-// }
-
 export function headerConsole(phrase = "") {
   let header = document.querySelector("#header");
   header.innerHTML = phrase;
