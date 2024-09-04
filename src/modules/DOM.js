@@ -44,15 +44,17 @@ function showDialog1() {
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
     if (status == "started") {
-      if (e.target.getAttribute("id") == "grid-item2") {
-        if (e.target.getAttribute("class").includes("ship")) {
-          hitShot(e.target.value);
-          let temp = L.attackAI();
-          AIclickAttack(temp);
-        } else {
-          dotBox(e.target.value);
-          let temp = L.attackAI();
-          AIclickAttack(temp);
+      if (e.target.getAttribute("class") == "color-green-mist grid-item") {
+        if (e.target.getAttribute("id") == "grid-item2") {
+          if (e.target.getAttribute("class").includes("ship")) {
+            hitShot(e.target.value);
+            let temp = L.attackAI();
+            AIclickAttack(temp);
+          } else {
+            dotBox(e.target.value);
+            let temp = L.attackAI();
+            AIclickAttack(temp);
+          }
         }
       }
     }
@@ -69,10 +71,12 @@ function AIclickAttack(location) {
   }
   if (status == "started") {
     if (gridItem.getAttribute("id") == "grid-item1") {
-      if (gridItem.getAttribute("class").includes("ship")) {
-        hitShot(location, "playerAI");
-      } else {
-        dotBox(location, "playerAI");
+      if (gridItem.getAttribute("class") != "color-dark-blue") {
+        if (gridItem.getAttribute("class").includes("ship")) {
+          hitShot(location, "playerAI");
+        } else {
+          dotBox(location, "playerAI");
+        }
       }
     }
   }
@@ -82,7 +86,7 @@ export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
   for (let i = 0; i < 100; i++) {
     if (squareAddress == gridItemsList[i].value) {
-      gridItemsList[i].classList.remove("color-sky-blue");
+      gridItemsList[i].classList.remove("color-green-mist");
     }
   }
 }
@@ -93,9 +97,9 @@ export function clearBoards() {
   setShipsInBoardOne(false);
   for (let i = 0; i < 100; i++) {
     gridItemsList1[i].classList.remove("color-dark-blue");
-    gridItemsList1[i].classList.add("color-sky-blue");
+    gridItemsList1[i].classList.add("color-green-mist");
     gridItemsList2[i].classList.remove("color-dark-blue");
-    gridItemsList2[i].classList.add("color-sky-blue");
+    gridItemsList2[i].classList.add("color-green-mist");
   }
 }
 
@@ -147,7 +151,6 @@ function playWithAI() {
       }
     }
   });
-  // switchTurns()
 }
 
 // export function switchTurns() {

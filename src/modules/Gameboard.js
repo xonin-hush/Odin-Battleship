@@ -2,6 +2,7 @@ import { Ship } from "./ship";
 import { dotBox } from "./DOM";
 import { setStatus } from "./DOM";
 import { headerConsole } from "./DOM";
+import { checkWin } from "./player";
 let gridItemsList1 = "";
 let gridItemsList2 = "";
 let ship1 = "";
@@ -41,7 +42,7 @@ export function createGrid(itemNum = 20, container, board) {
     gridItem.value = i;
     gridItem.style.removeProperty("background-color");
     gridItem.classList.remove("color-dark-blue");
-    gridItem.classList.add("color-sky-blue");
+    gridItem.classList.add("color-green-mist");
     gridItem.classList.add("grid-item");
     container.appendChild(gridItem);
   }
@@ -163,7 +164,7 @@ function renderShips(ship1, ship2, ship3, ship4, boardNumber) {
       for (let i = 0; i < 100; i++) {
         if (element == gridItemsList1[i].value) {
           gridItemsList1[i].classList.add("ship");
-          gridItemsList1[i].classList.remove("color-sky-blue");
+          gridItemsList1[i].classList.remove("color-green-mist");
           gridItemsList1[i].classList.add("color-dark-blue");
         }
       }
@@ -184,19 +185,31 @@ export function receiveAttack(location, player = "") {
   if (player == "") {
     if (ship1.position.includes(location)) {
       ship1.hit();
-      ship1.isSunk();
+      let temp = ship1.isSunk();
+      if (temp == true) {
+        checkWin();
+      }
     } else {
       if (ship2.position.includes(location)) {
         ship2.hit();
-        ship2.isSunk();
+        let temp = ship2.isSunk();
+        if (temp == true) {
+          checkWin();
+        }
       } else {
         if (ship3.position.includes(location)) {
           ship3.hit();
-          ship3.isSunk();
+          let temp = ship3.isSunk();
+          if (temp == true) {
+            checkWin();
+          }
         } else {
           if (ship4.position.includes(location)) {
             ship4.hit();
-            ship4.isSunk();
+            let temp = ship4.isSunk();
+            if (temp == true) {
+              checkWin();
+            }
           }
         }
       }
@@ -231,8 +244,6 @@ export function hitShot(itemNumber, player2 = "") {
     dotBox(itemNumber - 11 + 2, "playerAI");
   }
 }
-createGrid(10, boardContainer1, "firstBoard");
-createGrid(10, boardContainer2, "secondBoard");
 
 export function hardAI(attackLocation) {
   //this function is to sink whole ship if ai hits it once
@@ -240,12 +251,20 @@ export function hardAI(attackLocation) {
   if (ship1Board1.position.includes(attackLocation)) {
     ship1Board1.hit();
     hitShot(ship1Board1.position, "playerAI");
+    let temp = ship1Board1.isSunk();
+    if (temp == true) {
+      checkWin("playerAI");
+    }
   }
   if (ship2Board1.position.includes(attackLocation)) {
     ship2Board1.hit();
     ship2Board1.hit();
     hitShot(ship2Board1.position[0], "playerAI");
     hitShot(ship2Board1.position[1], "playerAI");
+    let temp = ship2Board1.isSunk();
+    if (temp == true) {
+      checkWin("playerAI");
+    }
   }
   if (ship3Board1.position.includes(attackLocation)) {
     ship3Board1.hit();
@@ -254,6 +273,10 @@ export function hardAI(attackLocation) {
     hitShot(ship3Board1.position[0], "playerAI");
     hitShot(ship3Board1.position[1], "playerAI");
     hitShot(ship3Board1.position[2], "playerAI");
+    let temp = ship3Board1.isSunk();
+    if (temp == true) {
+      checkWin("playerAI");
+    }
   }
   if (ship4Board1.position.includes(attackLocation)) {
     ship4Board1.hit();
@@ -264,8 +287,16 @@ export function hardAI(attackLocation) {
     hitShot(ship4Board1.position[1], "playerAI");
     hitShot(ship4Board1.position[2], "playerAI");
     hitShot(ship4Board1.position[3], "playerAI");
+    let temp = ship4Board1.isSunk();
+    if (temp == true) {
+      checkWin("playerAI");
+    }
   }
 }
+
 export function setShipsInBoardOne(trueFalse) {
   shipsInBoardOne = trueFalse;
 }
+
+createGrid(10, boardContainer1, "firstBoard");
+createGrid(10, boardContainer2, "secondBoard");

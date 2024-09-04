@@ -1,5 +1,23 @@
 import { createGrid } from "./Gameboard";
 import { getShipPositions } from "./DOM";
+import { headerConsole } from "./DOM";
+let player1Score = 0;
+let playerAIScore = 0;
+export function checkWin(playerType = "") {
+  if (playerType == "playerAI") {
+    playerAIScore++;
+  } else {
+    player1Score++;
+  }
+  if (player1Score == 4) {
+    headerConsole("Congrats You Win");
+  }
+  if (playerAIScore == 4) {
+    headerConsole("You Lost AI Beats You");
+  }
+  console.log({player1Score})
+  console.log({playerAIScore})
+}
 
 export class playerAI {
   randomizeShips() {
@@ -17,7 +35,7 @@ export class playerAI {
 
   attackAI() {
     let randomBox = Math.floor(Math.random() * 100);
-    return randomBox
+    return randomBox;
   }
 }
 let L = new playerAI();
