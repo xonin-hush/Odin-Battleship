@@ -44,7 +44,10 @@ function showDialog1() {
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
     if (status == "started") {
-      if (e.target.getAttribute("class") == "color-green-mist grid-item") {
+      if (
+        e.target.getAttribute("class") == "color-green-mist grid-item" ||
+        e.target.getAttribute("class") == "color-green-mist grid-item ship"
+      ) {
         if (e.target.getAttribute("id") == "grid-item2") {
           if (e.target.getAttribute("class").includes("ship")) {
             hitShot(e.target.value);
@@ -66,21 +69,31 @@ function AIclickAttack(location) {
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == location) {
       gridItem = gridItemsList[i];
+      console.log({gridItem})
       break;
     }
   }
   if (status == "started") {
+    console.log(gridItem.getAttribute("id"));
     if (gridItem.getAttribute("id") == "grid-item1") {
-      if (gridItem.getAttribute("class") != "color-dark-blue") {
+      console.log(gridItem.getAttribute("class"));
+      if (
+        gridItem.getAttribute("class") == "color-green-mist grid-item" ||
+        gridItem.getAttribute("class") == "grid-item ship color-dark-blue"
+      ) {
         if (gridItem.getAttribute("class").includes("ship")) {
           hitShot(location, "playerAI");
         } else {
           dotBox(location, "playerAI");
         }
+        hardAI(location);
+      } else {
+        let temp = L.attackAI();
+        AIclickAttack(temp);
       }
     }
   }
-  hardAI(location);
+  // hardAI(location);
 }
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");

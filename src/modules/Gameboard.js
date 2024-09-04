@@ -254,6 +254,7 @@ export function hardAI(attackLocation) {
     let temp = ship1Board1.isSunk();
     if (temp == true) {
       checkWin("playerAI");
+      console.log("1")
     }
   }
   if (ship2Board1.position.includes(attackLocation)) {
@@ -264,6 +265,7 @@ export function hardAI(attackLocation) {
     let temp = ship2Board1.isSunk();
     if (temp == true) {
       checkWin("playerAI");
+      console.log("2")
     }
   }
   if (ship3Board1.position.includes(attackLocation)) {
@@ -276,6 +278,7 @@ export function hardAI(attackLocation) {
     let temp = ship3Board1.isSunk();
     if (temp == true) {
       checkWin("playerAI");
+      console.log("3")
     }
   }
   if (ship4Board1.position.includes(attackLocation)) {
@@ -290,6 +293,7 @@ export function hardAI(attackLocation) {
     let temp = ship4Board1.isSunk();
     if (temp == true) {
       checkWin("playerAI");
+      console.log("4")
     }
   }
 }

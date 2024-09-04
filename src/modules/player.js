@@ -9,7 +9,7 @@ export function checkWin(playerType = "") {
   } else {
     player1Score++;
   }
-  if (player1Score == 4) {
+  if (player1Score >= 4) {
     headerConsole("Congrats You Win");
   }
   if (playerAIScore == 4) {
