@@ -106,8 +106,12 @@ export function clearBoards() {
   let gridItemsList2 = document.querySelectorAll("#grid-item2");
   setShipsInBoardOne(false);
   for (let i = 0; i < 100; i++) {
+    gridItemsList1[i].classList.remove("dot");
+    gridItemsList1[i].classList.remove("X");
     gridItemsList1[i].classList.remove("color-dark-blue");
     gridItemsList1[i].classList.add("color-green-mist");
+    gridItemsList2[i].classList.remove("dot");
+    gridItemsList2[i].classList.remove("X");
     gridItemsList2[i].classList.remove("color-dark-blue");
     gridItemsList2[i].classList.add("color-green-mist");
   }
