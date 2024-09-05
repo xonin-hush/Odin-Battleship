@@ -2,8 +2,11 @@ import { createGrid } from "./Gameboard";
 import { getShipPositions } from "./DOM";
 import { headerConsole } from "./DOM";
 import { setStatus } from "./DOM";
+
 let player1Score = 0;
 let playerAIScore = 0;
+let L = new playerAI();
+
 export function checkWin(playerType = "") {
   if (playerType == "playerAI") {
     playerAIScore++;
@@ -39,4 +42,3 @@ export class playerAI {
     return randomBox;
   }
 }
-let L = new playerAI();

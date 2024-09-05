@@ -4,20 +4,20 @@ import { shipsInBoardOne } from "./Gameboard";
 import { setShipsInBoardOne } from "./Gameboard";
 import { hitShot } from "./Gameboard";
 import { hardAI } from "./Gameboard";
-let status = "stopped";
+
 const submit = document.querySelector("#submit");
 const playAIButton = document.querySelector("#play-AI");
 const gameBoard2 = document.querySelector("#board2");
 const dialog = document.querySelector("#ships-dialog");
 const playButton = document.querySelector("#play-button");
+let status = "stopped";
 let L = new playerAI();
-let shipsExist = false;
 let shipsAIExist = false;
 let ship1Position = "";
 let ship2Position = "";
 let ship3Position = "";
 let ship4Position = "";
-let playerTurn = "";
+
 export function getShipPositions() {
   submit.addEventListener("click", (event) => {
     event.preventDefault();
@@ -36,11 +36,13 @@ export function getShipPositions() {
     );
   });
 }
+
 function showDialog1() {
   playButton.addEventListener("click", (event) => {
     dialog.showModal();
   });
 }
+
 function clickAttack() {
   gameBoard2.addEventListener("click", (e) => {
     if (status == "started") {
@@ -63,6 +65,7 @@ function clickAttack() {
     }
   });
 }
+
 function AIclickAttack(location) {
   let gridItemsList = document.querySelectorAll("#grid-item1");
   let gridItem = "";
@@ -92,6 +95,7 @@ function AIclickAttack(location) {
   }
   // hardAI(location);
 }
+
 export function revealCorners(squareAddress) {
   let gridItemsList = document.querySelectorAll("#grid-item2");
   for (let i = 0; i < 100; i++) {

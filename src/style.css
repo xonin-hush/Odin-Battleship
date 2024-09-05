@@ -14,7 +14,6 @@ html {
 }
 
 #header {
-  /* width: 100%; */
   background-color: #967bb6;
   font-weight: bolder;
   margin-bottom: 1rem;
@@ -24,6 +23,7 @@ html {
   font-weight: bold;
   unicode-bidi: isolate;
 }
+
 .grid-container {
   display: grid;
   background-color: #967bb6;
@@ -34,6 +34,7 @@ html {
   margin-bottom: 8px;
   margin-top: 40px;
 }
+
 .color-dark-blue {
   border-color: black;
   border: solid 1px rgb(65, 21, 21);
@@ -42,6 +43,7 @@ html {
   color: #cde4cd;
   box-sizing: border-box;
 }
+
 .color-green-mist {
   background-color: #cde4cd;
   border-color: black;
@@ -49,12 +51,13 @@ html {
   box-sizing: border-box;
   border-radius: 3px;
 }
+
 .dot {
   font-weight: bolder;
   background-color: #1f2937;
   color: #cde4cd;
-
 }
+
 .X {
   font-weight: bolder;
   background-color: #1f2937;
@@ -67,9 +70,8 @@ html {
   align-items: center;
 }
 
-#ships-dialog{
+#ships-dialog {
   background-color: #1f2937;
-  
 }
 
 .grid-item {
@@ -78,6 +80,7 @@ html {
   align-items: center;
   cursor: pointer;
 }
+
 #inputs {
   display: flex;
 }
@@ -126,25 +129,26 @@ html {
   border-radius: 5px;
   color: #0e3d4b;
 }
+
 /* here ends the input card */
 option {
   background-color: #0e3d4b;
 }
+
 button {
   background-color: #cde4cd;
   color: #967bb6;
-  border-left:0.2rem ;
-  border-top:0.2rem ;
-  border-bottom:0.2rem ;
-  border-right:0.2rem ;
-color: #1f2937;
+  border-left: 0.2rem;
+  border-top: 0.2rem;
+  border-bottom: 0.2rem;
+  border-right: 0.2rem;
+  color: #1f2937;
   border-color: #967bb6;
   border-radius: 10px;
   border-style: solid;
   width: 85px;
   height: 35px;
   justify-self: center;
-  /* margin-bottom: 20px; */
   font-weight: bolder;
 }
 
