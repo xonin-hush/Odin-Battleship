@@ -187,6 +187,7 @@ export function receiveAttack(location, player = "") {
       ship1.hit();
       let temp = ship1.isSunk();
       if (temp == true) {
+        console.log("1");
         checkWin();
       }
     } else {
@@ -194,6 +195,7 @@ export function receiveAttack(location, player = "") {
         ship2.hit();
         let temp = ship2.isSunk();
         if (temp == true) {
+          console.log("2");
           checkWin();
         }
       } else {
@@ -201,6 +203,7 @@ export function receiveAttack(location, player = "") {
           ship3.hit();
           let temp = ship3.isSunk();
           if (temp == true) {
+            console.log("3");
             checkWin();
           }
         } else {
@@ -208,6 +211,7 @@ export function receiveAttack(location, player = "") {
             ship4.hit();
             let temp = ship4.isSunk();
             if (temp == true) {
+              console.log("4");
               checkWin();
             }
           }
@@ -226,7 +230,9 @@ export function hitShot(itemNumber, player2 = "") {
   }
   for (let i = 0; i < 100; i++) {
     if (gridItemsList[i].value == itemNumber) {
-      receiveAttack(itemNumber);
+      if (player2 == "") {
+        receiveAttack(itemNumber);
+      }
       gridItemsList[i].classList.remove("color-dark-blue");
       gridItemsList[i].classList.add("X");
       gridItemsList[i].innerHTML = "X";
