@@ -59,7 +59,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship1 = new Ship(1, ship1Position.value);
   }
   if (ship1.checkPositionValues(ship1.position, ship1.length) == false) {
-    console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
 
     ship1 = "";
@@ -72,7 +71,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship2 = new Ship(2, ship2Position.value);
   }
   if (ship2.checkPositionValues(ship2.position, ship2.length) == false) {
-    console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
     ship2 = "";
     return "tryAgain";
@@ -83,7 +81,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship3 = new Ship(3, ship3Position.value);
   }
   if (ship3.checkPositionValues(ship3.position, ship3.length) == false) {
-    console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
     ship3 = "";
     return "tryAgain";
@@ -95,7 +92,6 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship4 = new Ship(4, ship4Position.value);
   }
   if (ship4.checkPositionValues(ship4.position, ship4.length) == false) {
-    console.log("Enter the sequential values in the correct format");
     headerConsole("Enter the sequential values in the correct format");
     ship4 = "";
     return "tryAgain";
@@ -107,9 +103,7 @@ export function createShips(ship1P, ship2P, ship3P, ship4P, boardNumber) {
     ship4.position
   );
   if (check_duplicate_in_array(arrayConcat).length != 0) {
-    console.log(
-      "Please enter a value only once in all ships in the correct order"
-    );
+    
     headerConsole(
       "Please enter a value only once in all ships in the correct order"
     );
@@ -187,7 +181,6 @@ export function receiveAttack(location, player = "") {
       ship1.hit();
       let temp = ship1.isSunk();
       if (temp == true) {
-        console.log("1");
         checkWin();
       }
     } else {
@@ -195,7 +188,6 @@ export function receiveAttack(location, player = "") {
         ship2.hit();
         let temp = ship2.isSunk();
         if (temp == true) {
-          console.log("2");
           checkWin();
         }
       } else {
@@ -203,7 +195,6 @@ export function receiveAttack(location, player = "") {
           ship3.hit();
           let temp = ship3.isSunk();
           if (temp == true) {
-            console.log("3");
             checkWin();
           }
         } else {
@@ -211,7 +202,6 @@ export function receiveAttack(location, player = "") {
             ship4.hit();
             let temp = ship4.isSunk();
             if (temp == true) {
-              console.log("4");
               checkWin();
             }
           }

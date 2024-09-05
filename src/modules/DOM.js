@@ -156,7 +156,6 @@ function playWithAI() {
         headerConsole("You go first");
         shipsAIExist = true;
       } else {
-        console.log("Please enter your ships first");
         headerConsole("Please enter your ships first");
       }
     }

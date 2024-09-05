@@ -18,8 +18,6 @@ export function checkWin(playerType = "") {
     setStatus("stopped")
     headerConsole("You Lost AI Beats You");
   }
-  console.log({player1Score})
-  console.log({playerAIScore})
 }
 
 export class playerAI {
