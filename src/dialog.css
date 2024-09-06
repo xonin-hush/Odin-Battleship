@@ -1,0 +1,35 @@
+dialog[open] {
+  left: 40%;
+  top: 40%;
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  background-color: #e8e8e8;
+  margin: 0%;
+  border-radius: 10px;
+  border-color: #967bb6;
+}
+
+dialog button {
+  color: white;
+  font-weight: bold;
+  background-color: #967bb6;
+  border: 2px #967bb6 solid;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+dialog button:hover {
+  background-color: #818cf8;
+  border-color: #818cf8;
+}
+
+form {
+  align-items: center;
+  color: antiquewhite;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}

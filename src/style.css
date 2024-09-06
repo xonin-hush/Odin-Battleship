@@ -1,0 +1,158 @@
+/* main css file */
+body {
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  text-align: center;
+  background-color: #1f2937;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  padding: 0px;
+  margin: 0px;
+}
+
+#header {
+  background-color: #967bb6;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  display: block;
+  font-size: 2em;
+  padding: 1.5rem;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+.grid-container {
+  display: grid;
+  background-color: #967bb6;
+  width: 40rem;
+  height: 40rem;
+  border: 1rem solid #967bb6;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  margin-top: 40px;
+}
+
+.color-dark-blue {
+  border-color: black;
+  border: solid 1px rgb(65, 21, 21);
+  border-radius: 3px;
+  background-color: #1f2937;
+  color: #cde4cd;
+  box-sizing: border-box;
+}
+
+.color-green-mist {
+  background-color: #cde4cd;
+  border-color: black;
+  border: solid 1px rgb(65, 21, 21);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.dot {
+  font-weight: bolder;
+  background-color: #1f2937;
+  color: #cde4cd;
+}
+
+.X {
+  font-weight: bolder;
+  background-color: #1f2937;
+  color: red;
+}
+
+#game-board {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#ships-dialog {
+  background-color: #1f2937;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#inputs {
+  display: flex;
+}
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+  max-width: 240px;
+}
+
+.input-label label.text {
+  font-size: 0.75rem;
+  color: #967bb6;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: #e8e8e8;
+  width: fit-content;
+}
+
+.input-label input[type="text"].input {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #967bb6 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+}
+
+.input-label input[type="text"].input:focus {
+  outline: none;
+}
+
+.priority-input,
+.date-input,
+#ship1,
+#ship2,
+#ship3,
+#ship4 {
+  background-color: #e8e8e8;
+  padding: 11px 10px;
+  border: 2px #967bb6 solid;
+  border-radius: 5px;
+  color: #0e3d4b;
+}
+
+/* here ends the input card */
+option {
+  background-color: #0e3d4b;
+}
+
+button {
+  background-color: #cde4cd;
+  color: #967bb6;
+  border-left: 0.2rem;
+  border-top: 0.2rem;
+  border-bottom: 0.2rem;
+  border-right: 0.2rem;
+  color: #1f2937;
+  border-color: #967bb6;
+  border-radius: 10px;
+  border-style: solid;
+  width: 85px;
+  height: 35px;
+  justify-self: center;
+  font-weight: bolder;
+}
+
+button:hover {
+  background-color: #145274;
+  border-color: #145274;
+}
