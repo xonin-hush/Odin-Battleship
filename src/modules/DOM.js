@@ -166,6 +166,8 @@ function playWithAI() {
       } else {
         headerConsole("Please enter your ships first");
       }
+    } else {
+      dialog.close();
     }
   });
 }
