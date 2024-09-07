@@ -76,7 +76,7 @@ git checkout main
 then just go to netlify and deploy your project using on the new branch
 
 
-#### Srouces
+#### Sources
 
 - https://gist.github.com/cobyism/4730490
 - https://www.30secondsofcode.org/git/s/copy-file-from-branch
