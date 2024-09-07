@@ -1,10 +1,10 @@
-# [Odin BattleShip]()
+# [Odin BattleShip](https://battleship.xonin.dev/)
 
-Final project in "the odin project" JavaScript Course, it demonstrates Unit Testing, TDD and jest. [The Odin Project-JavaScript](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript).
+Final project in "the odin project" JavaScript Course, it demonstrates Unit Testing, Test Driven Development and jest. [The Odin Project-JavaScript](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript).
 
 ## Links
 
-[Visit website]()
+[Visit website](https://battleship.xonin.dev/)
 
 ## Technologies used
 
@@ -21,8 +21,9 @@ Final project in "the odin project" JavaScript Course, it demonstrates Unit Test
 
 ## Things I got a better understanding of
 
--
-
+-Writing tests
+-Better understanding of TDD
+-Dealing with multiple modules
 
 ## Jest Watch
 

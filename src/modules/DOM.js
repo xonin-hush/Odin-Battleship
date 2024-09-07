@@ -93,7 +93,6 @@ function AIclickAttack(location) {
       }
     }
   }
-  // hardAI(location);
 }
 
 export function revealCorners(squareAddress) {
